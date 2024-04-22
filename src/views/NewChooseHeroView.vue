@@ -32,18 +32,22 @@ function selectHero(hero) {
   heroStore.selectHero(hero.name);
 }
 
+function save() {
+  heroStore.saveAllHeroData();
+}
+
 function moveLeft() {
   currentIndex.value = adjustIndex(currentIndex.value - 1);
-  selectHero(selectedHero.value);
 }
 
 function moveRight() {
   currentIndex.value = adjustIndex(currentIndex.value + 1);
-  selectHero(selectedHero.value);
 }
 
 function navigateToDashboard() {
+  selectHero(selectedHero.value);
   router.push({ name: 'MainDashboard' });
+
 }
 
 onMounted(() => {

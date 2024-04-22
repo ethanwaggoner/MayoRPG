@@ -1,4 +1,5 @@
 <script setup>
+
 import FireAttackIcon from "@/assets/items/tile096.png";
 import WaterAttackIcon from "@/assets/items/tile032.png";
 import DarkAttackIcon from "@/assets/items/tile064.png";

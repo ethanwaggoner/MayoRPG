@@ -1,4 +1,7 @@
 <script setup>
+import { computed } from 'vue';
+import { useRouter } from 'vue-router';
+
 import FireAttackIcon from "@/assets/items/tile096.png";
 import WaterAttackIcon from "@/assets/items/tile032.png";
 import DarkAttackIcon from "@/assets/items/tile064.png";
@@ -12,7 +15,13 @@ import LightDefenseIcon from "@/assets/items/tile021.png";
 import CraftingIcon from "@/assets/items/tile924.png";
 import GatheringIcon from "@/assets/items/tile849.png";
 import HungerIcon from "@/assets/items/tile913.png";
-import {computed} from "vue";
+
+
+const router = useRouter();
+
+const navigateToNewHero = () => {
+  router.push({ name: 'NewChooseHero' });
+};
 
 const icons = {
   "Fire Attack": FireAttackIcon,
@@ -70,7 +79,7 @@ const defenseAndOtherStats = computed(() => {
       </div>
     </div>
     <div v-else class="empty-card">
-      <div class="plus-sign">+</div>
+      <div class="plus-sign" @click="navigateToNewHero">+</div>
     </div>
   </div>
 </template>

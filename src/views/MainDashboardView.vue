@@ -7,7 +7,10 @@ import {useHeroStore} from "@/store/HeroStore.js";
 
 const heroStore = useHeroStore();
 
-const selectedHero = heroStore.selectedHero;
+const hero1 = heroStore.hero1;
+const hero2 = heroStore.hero2;
+const hero3 = heroStore.hero3;
+
 </script>
 
 <template>
@@ -16,9 +19,9 @@ const selectedHero = heroStore.selectedHero;
     <div class="center-dashboard">
       <MainMenu />
       <div class="party-container">
-        <HeroStatsCard />
-        <HeroStatsCard :hero="selectedHero" />
-        <HeroStatsCard />
+        <HeroStatsCard :hero="hero2"/>
+        <HeroStatsCard :hero="hero1" />
+        <HeroStatsCard :hero="hero3"/>
       </div>
     </div>
   </div>

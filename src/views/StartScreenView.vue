@@ -6,19 +6,22 @@ import Logo from "@/components/Logo.vue";
 const router = useRouter();
 const heroStore = useHeroStore();
 
-const handleNewGame = () => {
-  router.push({ name: 'NewChooseHero' });
-};
 
 const continueGame = () => {
   heroStore.loadHeroData();
 
-  if (heroStore.selectedHero) {
+  if (heroStore.hero1) {
     router.push({ name: 'MainDashboard' });
   } else {
     alert("No existing game found. Please start a new game.");
   }
 };
+
+const newGame = () => {
+  heroStore.clearHeroData()
+  router.push({ name: 'NewChooseHero' });
+};
+
 </script>
 
 
@@ -29,7 +32,7 @@ const continueGame = () => {
     <div class="content">
       <h1>MayoRPG</h1>
       <div class="button-container">
-        <button class="new-game-button" @click="handleNewGame">New Game</button>
+        <button class="new-game-button" @click="newGame">New Game</button>
         <button class="continue-button" @click="continueGame">Continue Game</button>
       </div>
     </div>
