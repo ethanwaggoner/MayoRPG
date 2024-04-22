@@ -1,10 +1,17 @@
 <script setup>
 import { ref } from 'vue';
 
-import Hero1 from '@/assets/hero1idle.png';
-import Hero2 from '@/assets/hero2idle.png';
-import Hero3 from '@/assets/hero3idle.png';
-import Hero4 from '@/assets/hero4idle.png';
+import Hero1 from '@/assets/hero1animate.gif';
+import Hero2 from '@/assets/hero2animate.gif';
+import Hero3 from '@/assets/hero3animate.gif';
+import Hero4 from '@/assets/hero4animate.gif';
+
+import AttackIcon from '@/assets/items/tile000.png';
+import SpellIcon from '@/assets/items/tile256.png';
+import DefenseIcon from '@/assets/items/tile085.png';
+import CraftingIcon from '@/assets/items/tile464.png';
+import GatheringIcon from '@/assets/items/tile849.png';
+import HungerIcon from '@/assets/items/tile913.png';
 
 const heroes = ref([
     {
@@ -12,44 +19,80 @@ const heroes = ref([
     image: Hero1,
     stats: {
       attack: 18,
+      spell: 5,
       defense: 12,
       craftingSpeed: 6,
       gatheringSpeed: 8,
       hunger: 4
     },
+      icons: {
+      attack: AttackIcon,
+      spell: SpellIcon,
+      defense: DefenseIcon,
+      craftingSpeed: CraftingIcon,
+      gatheringSpeed: GatheringIcon,
+      hunger: HungerIcon
+    }
   },
   {
     name: 'Scout',
     image: Hero2,
     stats: {
       attack: 10,
+      spell: 8,
       defense: 6,
       craftingSpeed: 14,
       gatheringSpeed: 18,
       hunger: 10
     },
+    icons: {
+      attack: AttackIcon,
+      spell: SpellIcon,
+      defense: DefenseIcon,
+      craftingSpeed: CraftingIcon,
+      gatheringSpeed: GatheringIcon,
+      hunger: HungerIcon
+    }
   },
   {
     name: 'Craftsman',
     image: Hero3,
     stats: {
       attack: 7,
+      spell: 10,
       defense: 10,
       craftingSpeed: 20,
       gatheringSpeed: 6,
       hunger: 8
     },
+    icons: {
+      attack: AttackIcon,
+      spell: SpellIcon,
+      defense: DefenseIcon,
+      craftingSpeed: CraftingIcon,
+      gatheringSpeed: GatheringIcon,
+      hunger: HungerIcon
+    }
   },
   {
     name: 'Defender',
     image: Hero4,
     stats: {
       attack: 9,
-      defense: 20,
+      spell: 14,
+      defense: 18,
       craftingSpeed: 10,
       gatheringSpeed: 7,
       hunger: 15
     },
+    icons: {
+      attack: AttackIcon,
+      spell: SpellIcon,
+      defense: DefenseIcon,
+      craftingSpeed: CraftingIcon,
+      gatheringSpeed: GatheringIcon,
+      hunger: HungerIcon
+    }
   },
 
 ]);
@@ -75,11 +118,11 @@ function selectHero(hero) {
         <h2>{{ hero.name }}</h2>
         <img :src="hero.image" :alt="hero.name" class="hero-image">
         <div class="hero-stats">
-          <p>Attack: {{ hero.stats.attack }}</p>
-          <p>Defense: {{ hero.stats.defense }}</p>
-          <p>Crafting Speed: {{ hero.stats.craftingSpeed }}</p>
-          <p>Gathering Speed: {{ hero.stats.gatheringSpeed }}</p>
-          <p>Hunger: {{ hero.stats.hunger }}</p>
+          <div v-for="(value, key) in hero.stats" :key="key" class="stat-row">
+            <img :src="hero.icons[key]" class="stat-icon">
+            <span class="stat-label">{{ key }}:</span>
+            <span class="stat-value">{{ value }}</span>
+          </div>
         </div>
         <button v-if="selectedHero === hero" class="continue-button">Continue</button>
       </div>
@@ -126,7 +169,28 @@ body {
   border: 4px solid #fff;
 }
 
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
 
+.stat-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.stat-label {
+  flex: 1;
+  text-align: left;
+}
+
+.stat-value {
+  flex: 1;
+  text-align: right;
+}
 
 button {
   padding: 1.5rem 3rem;
