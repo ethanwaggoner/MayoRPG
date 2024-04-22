@@ -47,29 +47,34 @@ const defenseAndOtherStats = computed(() => {
 </script>
 
 <template>
-  <div class="hero-card">
-    <h2>{{ props.hero.name }}</h2>
-    <img :src="props.hero.image" :alt="props.hero.name" class="hero-image">
-    <div class="hero-stats">
-      <div class="stat-column">
-        <!-- Attack Stats + Crafting and Gathering -->
-        <div v-for="([key, value]) in attackAndCraftingStats" :key="'attack-' + key" class="stat-row">
-          <img :src="icons[key]" class="stat-icon">
-          <span class="stat-label">{{ key }}:</span>
-          <span class="stat-value">{{ value }}</span>
+  <div class="hero-card" :class="{ 'is-selected': props.isSelected }">
+    <div v-if="props.hero">
+      <!-- Existing hero card content -->
+      <h2>{{ props.hero.name }}</h2>
+      <img :src="props.hero.image" :alt="props.hero.name" class="hero-image">
+      <div class="hero-stats">
+        <div class="stat-column">
+          <div v-for="([key, value]) in attackAndCraftingStats" :key="'attack-' + key" class="stat-row">
+            <img :src="icons[key]" class="stat-icon">
+            <span class="stat-label">{{ key }}:</span>
+            <span class="stat-value">{{ value }}</span>
+          </div>
         </div>
-      </div>
-      <div class="stat-column">
-        <!-- Defense Stats + Hunger -->
-        <div v-for="([key, value]) in defenseAndOtherStats" :key="'defense-' + key" class="stat-row">
-          <img :src="icons[key]" class="stat-icon">
-          <span class="stat-label">{{ key }}:</span>
-          <span class="stat-value">{{ value }}</span>
+        <div class="stat-column">
+          <div v-for="([key, value]) in defenseAndOtherStats" :key="'defense-' + key" class="stat-row">
+            <img :src="icons[key]" class="stat-icon">
+            <span class="stat-label">{{ key }}:</span>
+            <span class="stat-value">{{ value }}</span>
+          </div>
         </div>
       </div>
     </div>
+    <div v-else class="empty-card">
+      <div class="plus-sign">+</div>
+    </div>
   </div>
 </template>
+
 
 
 
@@ -128,6 +133,27 @@ const defenseAndOtherStats = computed(() => {
   margin-bottom: 15px;
   border-radius: 50%;
   border: 3px solid #fff;
+}
+
+.empty-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: background-color 0.3s;
+}
+
+.plus-sign {
+  font-size: 72px;
+  color: #ccc;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.empty-card:hover .plus-sign {
+  transform: scale(1.5);
+  color: #ff0000;
+  cursor: pointer;
 }
 
 </style>

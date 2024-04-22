@@ -15,13 +15,26 @@ const selectedHero = heroStore.selectedHero;
     <Logo />
     <div class="center-dashboard">
       <MainMenu />
-      <HeroStatsCard :hero="selectedHero" />
+      <div class="party-container">
+        <HeroStatsCard />
+        <HeroStatsCard :hero="selectedHero" />
+        <HeroStatsCard />
+      </div>
     </div>
   </div>
 </template>
 
 
 <style scoped>
+.party-container {
+  margin-top: 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
 
+}
 
 </style>

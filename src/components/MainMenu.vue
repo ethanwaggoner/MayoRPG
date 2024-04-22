@@ -3,27 +3,53 @@ import { ref } from 'vue';
 
 import Inventory from '@/assets/items/tile952.png';
 import Fight from '@/assets/items/tile486.png';
-import Gather from '@/assets/items/tile894.png';
+import Shop from '@/assets/items/tile735.png';
 import Craft from '@/assets/items/tile435.png';
 
 const buttons = ref([
-  { label: 'Inventory', icon: Inventory },
-  { label: 'Fight', icon: Fight },
-  { label: 'Gather', icon: Gather },
-  { label: 'Craft', icon: Craft },
+  { label: 'Inventory', icon: Inventory, options: [
+    { name: 'Hero1', icon: Inventory },
+    { name: 'Hero2', icon: Inventory },
+    { name: 'Hero3', icon: Inventory }
+  ] },
+  { label: 'Fight', icon: Fight, options: [
+    { name: 'Battlefield', icon: Fight },
+    { name: 'Infinite Arena', icon: Fight }
+  ] },
+  { label: 'Craft', icon: Craft, options: [
+    { name: 'Blacksmith', icon: Craft },
+    { name: 'Alchemist', icon: Craft }
+  ] },
+  { label: 'Shop', icon: Shop, options: [
+    { name: 'Sell', icon: Shop },
+    { name: 'Buy Gear', icon: Shop },
+    { name: 'Buy Ingredients', icon: Shop }
+  ] },
 ]);
 </script>
+
 
 <template>
   <div class="main-menu">
     <div class="button-container">
-      <div v-for="(button, index) in buttons" :key="index" class="menu-button">
-        <img :src="button.icon" :alt="button.label" class="button-icon" />
-        <span class="button-label">{{ button.label }}</span>
+      <div v-for="(button, index) in buttons" :key="index" class="menu-item-wrapper">
+        <div class="menu-button">
+          <img :src="button.icon" :alt="button.label" class="button-icon" />
+          <span class="button-label">{{ button.label }}</span>
+        </div>
+        <div class="dropdown-content">
+          <div v-for="option in button.options" :key="option.name" class="dropdown-item">
+            <img :src="option.icon" :alt="option.name" class="option-icon" />
+            {{ option.name }}
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
+
+
+
 
 <style scoped>
 .main-menu {
@@ -39,10 +65,14 @@ const buttons = ref([
   width: 80%;
 }
 
+.menu-item-wrapper {
+  position: relative;
+  width: 30rem;
+}
+
 .menu-button {
   display: flex;
   flex-direction: column;
-  flex: 1;
   align-items: center;
   padding: 20px;
   border-radius: 10px;
@@ -53,9 +83,42 @@ const buttons = ref([
   margin: 5px;
 }
 
-.menu-button:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+.dropdown-content {
+  font-family: 'Press Start 2P', cursive;
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(100%);
+  background-color: #34495e;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.menu-item-wrapper:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  text-align: left;
+}
+
+.option-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.dropdown-item:hover {
+  background-color: #46637f;
+  color: #fff;
 }
 
 .button-icon {
@@ -70,10 +133,5 @@ const buttons = ref([
   color: #fff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-
-button:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
-  background-image: linear-gradient(135deg, #415b77 0%, #2c3e50 100%);
-}
 </style>
+
