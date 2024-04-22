@@ -1,9 +1,11 @@
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed} from 'vue';
+import { useRouter } from 'vue-router';
 import ChooseHeroCard from "@/components/ChooseHeroCard.vue";
 import Logo from "@/components/Logo.vue";
 import { NewHeroStats } from "@/data/NewHeroStats.js";
 
+const router = useRouter();
 
 const heroes = ref([...NewHeroStats]);
 const currentIndex = ref(0);
@@ -36,6 +38,10 @@ function moveLeft() {
 function moveRight() {
   currentIndex.value = adjustIndex(currentIndex.value + 1);
 }
+
+function navigateToDashboard() {
+  router.push({ name: 'MainDashboard' });
+}
 </script>
 
 
@@ -57,7 +63,7 @@ function moveRight() {
       </div>
       <button @click="moveRight"> >>> </button>
     </div>
-    <button class="continue-button">Continue</button>
+    <button class="continue-button" @click="navigateToDashboard">Continue</button>
   </div>
 </template>
 

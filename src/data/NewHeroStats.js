@@ -75,6 +75,23 @@ export const NewHeroStats = [
     },
   },
   {
+    name: "Conor",
+    image: Hero5,
+    stats: {
+      "Fire Attack": 9,
+      "Water Attack": 8,
+      "Light Attack": 14,
+      "Dark Attack": 11,
+      "Fire Defense": 6,
+      "Water Defense": 7,
+      "Light Defense": 12,
+      "Dark Defense": 10,
+      "Crafting Speed": 12,
+      "Gathering Speed": 15,
+      "Hunger": 12,
+    },
+  },
+  {
     name: "Crisluigy",
     image: Hero10,
     stats: {
@@ -91,21 +108,4 @@ export const NewHeroStats = [
       "Hunger": 10,
     },
   },
-  {
-    name: "Conor",
-    image: Hero5,
-    stats: {
-      "Fire Attack": 9,
-      "Water Attack": 8,
-      "Light Attack": 14,
-      "Dark Attack": 11,
-      "Fire Defense": 6,
-      "Water Defense": 7,
-      "Light Defense": 12,
-      "Dark Defense": 10,
-      "Crafting Speed": 12,
-      "Gathering Speed": 15,
-      "Hunger": 12,
-    },
-  }
 ];
