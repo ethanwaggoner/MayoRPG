@@ -1,12 +1,13 @@
 <script setup>
 import { ref } from 'vue';
 import logo from '@/assets/logo-no-background.png';
-
 </script>
 
 <template>
   <div class="logo-container">
-    <img class="logo" :src="logo" alt="Logo" />
+    <router-link to="/">
+      <img class="logo" :src="logo" alt="Logo" />
+    </router-link>
   </div>
 </template>
 

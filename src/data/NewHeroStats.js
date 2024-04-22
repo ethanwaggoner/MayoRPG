@@ -3,53 +3,73 @@ import Hero2 from '@/assets/hero2animate.gif';
 import Hero3 from '@/assets/hero3animate.gif';
 import Hero4 from '@/assets/hero4animate.gif';
 
-
-export const NewHeroStats = [{
-        name: 'Ethan',
-        image: Hero1,
-        stats: {
-            attack: 18,
-            spell: 5,
-            defense: 12,
-            craftingSpeed: 6,
-            gatheringSpeed: 8,
-            hunger: 4
-        },
+export const NewHeroStats = [
+  {
+    name: "Ethan",
+    image: Hero1,
+    stats: {
+      "Fire Attack": 10,
+      "Water Attack": 12,
+      "Light Attack": 6,
+      "Dark Attack": 18,
+      "Fire Defense": 8,
+      "Water Defense": 9,
+      "Light Defense": 5,
+      "Dark Defense": 14,
+      "Crafting Speed": 6,
+      "Gathering Speed": 8,
+      "Hunger": 4,
     },
-    {
-        name: 'Drew',
-        image: Hero2,
-        stats: {
-            attack: 10,
-            spell: 8,
-            defense: 6,
-            craftingSpeed: 14,
-            gatheringSpeed: 18,
-            hunger: 10
-        },
+  },
+  {
+    name: "Drew",
+    image: Hero2,
+    stats: {
+      "Fire Attack": 8,
+      "Water Attack": 6,
+      "Light Attack": 14,
+      "Dark Attack": 10,
+      "Fire Defense": 4,
+      "Water Defense": 6,
+      "Light Defense": 12,
+      "Dark Defense": 8,
+      "Crafting Speed": 14,
+      "Gathering Speed": 18,
+      "Hunger": 10,
     },
-    {
-        name: 'Johnathan',
-        image: Hero3,
-        stats: {
-            attack: 7,
-            spell: 10,
-            defense: 10,
-            craftingSpeed: 20,
-            gatheringSpeed: 6,
-            hunger: 8
-        },
+  },
+  {
+    name: "Johnathan",
+    image: Hero3,
+    stats: {
+      "Fire Attack": 12,
+      "Water Attack": 9,
+      "Light Attack": 7,
+      "Dark Attack": 10,
+      "Fire Defense": 10,
+      "Water Defense": 14,
+      "Light Defense": 8,
+      "Dark Defense": 12,
+      "Crafting Speed": 20,
+      "Gathering Speed": 6,
+      "Hunger": 8,
     },
-    {
-        name: 'Nicholas',
-        image: Hero4,
-        stats: {
-            attack: 9,
-            spell: 14,
-            defense: 18,
-            craftingSpeed: 10,
-            gatheringSpeed: 7,
-            hunger: 15
-        },
+  },
+  {
+    name: "Nicholas",
+    image: Hero4,
+    stats: {
+      "Fire Attack": 14,
+      "Water Attack": 11,
+      "Light Attack": 9,
+      "Dark Attack": 7,
+      "Fire Defense": 12,
+      "Water Defense": 18,
+      "Light Defense": 10,
+      "Dark Defense": 15,
+      "Crafting Speed": 10,
+      "Gathering Speed": 7,
+      "Hunger": 15,
     },
+  },
 ];

@@ -1,43 +1,91 @@
 <script setup>
-import AttackIcon from '@/assets/items/tile000.png';
-import SpellIcon from '@/assets/items/tile256.png';
-import DefenseIcon from '@/assets/items/tile085.png';
-import CraftingIcon from '@/assets/items/tile464.png';
-import GatheringIcon from '@/assets/items/tile849.png';
-import HungerIcon from '@/assets/items/tile913.png';
+import FireAttackIcon from "@/assets/items/tile096.png";
+import WaterAttackIcon from "@/assets/items/tile032.png";
+import DarkAttackIcon from "@/assets/items/tile064.png";
+import LightAttackIcon from "@/assets/items/tile000.png";
+
+import FireDefenseIcon from "@/assets/items/tile117.png";
+import WaterDefenseIcon from "@/assets/items/tile053.png";
+import DarkDefenseIcon from "@/assets/items/tile117.png";
+import LightDefenseIcon from "@/assets/items/tile021.png";
+
+import CraftingIcon from "@/assets/items/tile924.png";
+import GatheringIcon from "@/assets/items/tile849.png";
+import HungerIcon from "@/assets/items/tile913.png";
+import {computed} from "vue";
 
 const icons = {
-  attack: AttackIcon,
-  spell: SpellIcon,
-  defense: DefenseIcon,
-  craftingSpeed: CraftingIcon,
-  gatheringSpeed: GatheringIcon,
-  hunger: HungerIcon
+  "Fire Attack": FireAttackIcon,
+  "Water Attack": WaterAttackIcon,
+  "Dark Attack": DarkAttackIcon,
+  "Light Attack": LightAttackIcon,
+  "Fire Defense": FireDefenseIcon,
+  "Water Defense": WaterDefenseIcon,
+  "Dark Defense": DarkDefenseIcon,
+  "Light Defense": LightDefenseIcon,
+  "Crafting Speed": CraftingIcon,
+  "Gathering Speed": GatheringIcon,
+  "Hunger": HungerIcon
 };
-
-
 const props = defineProps({
   hero: Object,
   isSelected: Boolean
+});
+
+const attackAndCraftingStats = computed(() => {
+  return Object.entries(props.hero.stats).filter(([key, value]) =>
+    key.endsWith('Attack') || key.includes('Crafting') || key.includes('Hunger')
+  );
+});
+
+const defenseAndOtherStats = computed(() => {
+  return Object.entries(props.hero.stats).filter(([key, value]) =>
+    key.endsWith('Defense') || key.includes('Gathering')
+  );
 });
 
 </script>
 
 <template>
   <div class="hero-card">
-    <h2>{{ hero.name }}</h2>
-    <img :src="hero.image" :alt="hero.name" class="hero-image">
+    <h2>{{ props.hero.name }}</h2>
+    <img :src="props.hero.image" :alt="props.hero.name" class="hero-image">
     <div class="hero-stats">
-      <div v-for="(value, key) in hero.stats" :key="key" class="stat-row">
-        <img :src="icons[key]" class="stat-icon">
-        <span class="stat-label">{{ key }}:</span>
-        <span class="stat-value">{{ value }}</span>
+      <div class="stat-column">
+        <!-- Attack Stats + Crafting and Gathering -->
+        <div v-for="([key, value]) in attackAndCraftingStats" :key="'attack-' + key" class="stat-row">
+          <img :src="icons[key]" class="stat-icon">
+          <span class="stat-label">{{ key }}:</span>
+          <span class="stat-value">{{ value }}</span>
+        </div>
+      </div>
+      <div class="stat-column">
+        <!-- Defense Stats + Hunger -->
+        <div v-for="([key, value]) in defenseAndOtherStats" :key="'defense-' + key" class="stat-row">
+          <img :src="icons[key]" class="stat-icon">
+          <span class="stat-label">{{ key }}:</span>
+          <span class="stat-value">{{ value }}</span>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
+
+
 <style scoped>
+.hero-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.stat-column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 0 10px;
+}
 
 .hero-card {
   background-color: #0F111A;
@@ -45,8 +93,8 @@ const props = defineProps({
   padding: 40px;
   text-align: center;
   color: #fff;
-  width: 250px;
-  height: 400px;
+  width: 300px;
+  height: 450px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
