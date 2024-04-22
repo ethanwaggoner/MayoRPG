@@ -5,7 +5,7 @@ import Hero4 from '@/assets/hero4animate.gif';
 
 
 export const NewHeroStats = [{
-        name: 'Warrior',
+        name: 'Ethan',
         image: Hero1,
         stats: {
             attack: 18,
@@ -17,7 +17,7 @@ export const NewHeroStats = [{
         },
     },
     {
-        name: 'Scout',
+        name: 'Drew',
         image: Hero2,
         stats: {
             attack: 10,
@@ -29,7 +29,7 @@ export const NewHeroStats = [{
         },
     },
     {
-        name: 'Craftsman',
+        name: 'Johnathan',
         image: Hero3,
         stats: {
             attack: 7,
@@ -41,7 +41,7 @@ export const NewHeroStats = [{
         },
     },
     {
-        name: 'Defender',
+        name: 'Nicholas',
         image: Hero4,
         stats: {
             attack: 9,

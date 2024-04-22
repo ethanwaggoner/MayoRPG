@@ -1,7 +1,9 @@
 <script setup>
 import { ref, computed } from 'vue';
 import ChooseHeroCard from "@/components/ChooseHeroCard.vue";
+import Logo from "@/components/Logo.vue";
 import { NewHeroStats } from "@/data/NewHeroStats.js";
+
 
 const heroes = ref([...NewHeroStats]);
 const currentIndex = ref(0);
@@ -39,31 +41,57 @@ function moveRight() {
 
 <template>
   <div class="hero-selection">
-    <button @click="moveLeft"> <<< </button>
-    <div class="card-container">
-      <ChooseHeroCard
-        v-for="(hero, index) in displayedHeroes"
-        :key="hero.name"
-        :hero="hero"
-        :is-selected="selectedHero.value === hero"
-        @select="() => selectHero(hero)"
-        :class="{ 'is-large': index === 1 }"
-      />
+    <Logo />
+    <h1 class="title">Choose Your Hero</h1>
+    <div class="navigation-container">
+      <button @click="moveLeft"> <<< </button>
+      <div class="card-container">
+        <ChooseHeroCard
+          v-for="(hero, index) in displayedHeroes"
+          :key="hero.name"
+          :hero="hero"
+          :is-selected="selectedHero.value === hero"
+          @select="() => selectHero(hero)"
+          :class="{ 'is-large': index === 1 }"
+        />
+      </div>
+      <button @click="moveRight"> >>> </button>
     </div>
-    <button @click="moveRight"> >>> </button>
+    <button class="continue-button">Continue</button>
   </div>
 </template>
 
-
 <style scoped>
-
+.title {
+  color: #fff;
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  font-family: 'Press Start 2P', cursive;
+  position: relative;
+  display: inline-block;
+  background-color: #2c3e50;
+  background-image: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+  border-radius: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  padding: 10px 20px;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.4);
+}
 
 .hero-selection {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   position: relative;
+}
+
+.navigation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .card-container {
@@ -104,6 +132,12 @@ button:first-child {
 
 button:last-child {
   right: 10px;
+}
+
+button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+  background-image: linear-gradient(135deg, #415b77 0%, #2c3e50 100%);
 }
 
 </style>
