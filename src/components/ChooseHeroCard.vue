@@ -21,19 +21,10 @@ const props = defineProps({
   isSelected: Boolean
 });
 
-const emits = defineEmits(['select']);
-
-function selectHero() {
-  emits('select', props.hero);
-}
 </script>
 
 <template>
-  <div
-    class="hero-card"
-    :class="{ 'is-selected': isSelected }"
-    @click="selectHero"
-  >
+  <div class="hero-card">
     <h2>{{ hero.name }}</h2>
     <img :src="hero.image" :alt="hero.name" class="hero-image">
     <div class="hero-stats">
@@ -43,7 +34,6 @@ function selectHero() {
         <span class="stat-value">{{ value }}</span>
       </div>
     </div>
-    <button v-if="isSelected" class="continue-button">Continue</button>
   </div>
 </template>
 
@@ -52,19 +42,12 @@ function selectHero() {
 .hero-card {
   background-color: #0F111A;
   border-radius: 8px;
-  padding: 20px;
+  padding: 40px;
   text-align: center;
   color: #fff;
+  width: 250px;
+  height: 400px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-
-.hero-card:hover {
-  transform: scale(1.2);
-  cursor: pointer;
-}
-
-.hero-card.is-selected {
-  border: 4px solid #fff;
 }
 
 .stat-row {
@@ -99,23 +82,4 @@ function selectHero() {
   border: 3px solid #fff;
 }
 
-.continue-button {
-  padding: 1.5rem 3rem;
-  font-size: 1.5rem;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-family: 'Press Start 2P', cursive;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s, box-shadow 0.3s;
-  background-color: #2c3e50;
-  background-image: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-}
-
-.continue-button:hover {
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
-  background-image: linear-gradient(135deg, #415b77 0%, #2c3e50 100%);
-}
 </style>
