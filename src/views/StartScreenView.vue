@@ -1,14 +1,26 @@
 <script setup>
 import { useRouter } from "vue-router";
-
+import { useHeroStore } from "@/store/HeroStore.js";
 import Logo from "@/components/Logo.vue";
 
 const router = useRouter();
+const heroStore = useHeroStore();
 
 const handleNewGame = () => {
   router.push({ name: 'NewChooseHero' });
 };
+
+const continueGame = () => {
+  heroStore.loadHeroData();
+
+  if (heroStore.selectedHero) {
+    router.push({ name: 'MainDashboard' });
+  } else {
+    alert("No existing game found. Please start a new game.");
+  }
+};
 </script>
+
 
 <template>
   <div class="start-screen">
@@ -18,11 +30,12 @@ const handleNewGame = () => {
       <h1>MayoRPG</h1>
       <div class="button-container">
         <button class="new-game-button" @click="handleNewGame">New Game</button>
-        <button class="continue-button">Continue Game</button>
+        <button class="continue-button" @click="continueGame">Continue Game</button>
       </div>
     </div>
   </div>
 </template>
+
 
 <style scoped>
 .start-screen {

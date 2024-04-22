@@ -1,21 +1,22 @@
 <script setup>
-import { ref, computed} from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import ChooseHeroCard from "@/components/ChooseHeroCard.vue";
 import Logo from "@/components/Logo.vue";
-import { NewHeroStats } from "@/data/NewHeroStats.js";
+import { useHeroStore } from "@/store/HeroStore.js";
 
 const router = useRouter();
+const heroStore = useHeroStore();
 
-const heroes = ref([...NewHeroStats]);
+const heroes = ref([...heroStore.heroes]);
 const currentIndex = ref(0);
-const selectedHero = ref(heroes.value[0]);
+
+const selectedHero = computed(() => heroes.value[currentIndex.value]);
 
 function adjustIndex(index) {
   const count = heroes.value.length;
   return (index % count + count) % count;
 }
-
 
 const displayedHeroes = computed(() => {
   let prevIndex = adjustIndex(currentIndex.value - 1);
@@ -28,22 +29,27 @@ const displayedHeroes = computed(() => {
 });
 
 function selectHero(hero) {
-  selectedHero.value = hero;
+  heroStore.selectHero(hero.name);
 }
 
 function moveLeft() {
   currentIndex.value = adjustIndex(currentIndex.value - 1);
+  selectHero(selectedHero.value);
 }
 
 function moveRight() {
   currentIndex.value = adjustIndex(currentIndex.value + 1);
+  selectHero(selectedHero.value);
 }
 
 function navigateToDashboard() {
   router.push({ name: 'MainDashboard' });
 }
-</script>
 
+onMounted(() => {
+  heroStore.loadHeroData();
+});
+</script>
 
 <template>
   <div class="hero-selection">
@@ -66,6 +72,7 @@ function navigateToDashboard() {
     <button class="continue-button" @click="navigateToDashboard">Continue</button>
   </div>
 </template>
+
 
 <style scoped>
 .title {

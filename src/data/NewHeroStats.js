@@ -3,6 +3,9 @@ import Hero2 from '@/assets/hero2animate.gif';
 import Hero3 from '@/assets/hero3animate.gif';
 import Hero4 from '@/assets/hero4animate.gif';
 import Hero5 from '@/assets/hero5animate.gif';
+import Hero6 from '@/assets/hero6animate.gif';
+import Hero7 from '@/assets/hero7animate.gif';
+import Hero8 from '@/assets/hero8animate.gif';
 import Hero10 from '@/assets/hero10animate.gif';
 
 export const NewHeroStats = [
@@ -89,6 +92,57 @@ export const NewHeroStats = [
       "Crafting Speed": 12,
       "Gathering Speed": 15,
       "Hunger": 12,
+    },
+  },
+  {
+    name: "Mara",
+    image: Hero6,
+    stats: {
+      "Fire Attack": 11,
+      "Water Attack": 14,
+      "Light Attack": 7,
+      "Dark Attack": 9,
+      "Fire Defense": 9,
+      "Water Defense": 12,
+      "Light Defense": 10,
+      "Dark Defense": 15,
+      "Crafting Speed": 7,
+      "Gathering Speed": 10,
+      "Hunger": 9,
+    },
+  },
+  {
+    name: "Sav",
+    image: Hero7,
+    stats: {
+      "Fire Attack": 7,
+      "Water Attack": 9,
+      "Light Attack": 11,
+      "Dark Attack": 14,
+      "Fire Defense": 5,
+      "Water Defense": 6,
+      "Light Defense": 9,
+      "Dark Defense": 12,
+      "Crafting Speed": 15,
+      "Gathering Speed": 12,
+      "Hunger": 7,
+    },
+  },
+  {
+    name: "Elaine",
+    image: Hero8,
+    stats: {
+      "Fire Attack": 6,
+      "Water Attack": 8,
+      "Light Attack": 12,
+      "Dark Attack": 14,
+      "Fire Defense": 5,
+      "Water Defense": 6,
+      "Light Defense": 9,
+      "Dark Defense": 12,
+      "Crafting Speed": 12,
+      "Gathering Speed": 15,
+      "Hunger": 7,
     },
   },
   {

@@ -4,7 +4,7 @@ import { ref } from 'vue';
 import Inventory from '@/assets/items/tile952.png';
 import Fight from '@/assets/items/tile486.png';
 import Gather from '@/assets/items/tile894.png';
-import Craft from '@/assets/items/tile912.png';
+import Craft from '@/assets/items/tile435.png';
 
 const buttons = ref([
   { label: 'Inventory', icon: Inventory },
