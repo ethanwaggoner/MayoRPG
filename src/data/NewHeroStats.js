@@ -2,6 +2,8 @@ import Hero1 from '@/assets/hero1animate.gif';
 import Hero2 from '@/assets/hero2animate.gif';
 import Hero3 from '@/assets/hero3animate.gif';
 import Hero4 from '@/assets/hero4animate.gif';
+import Hero5 from '@/assets/hero5animate.gif';
+import Hero10 from '@/assets/hero10animate.gif';
 
 export const NewHeroStats = [
   {
@@ -39,7 +41,7 @@ export const NewHeroStats = [
     },
   },
   {
-    name: "Johnathan",
+    name: "Jonathan",
     image: Hero3,
     stats: {
       "Fire Attack": 12,
@@ -72,4 +74,38 @@ export const NewHeroStats = [
       "Hunger": 15,
     },
   },
+  {
+    name: "Crisluigy",
+    image: Hero10,
+    stats: {
+      "Fire Attack": 14,
+      "Water Attack": 11,
+      "Light Attack": 18,
+      "Dark Attack": 7,
+      "Fire Defense": 12,
+      "Water Defense": 9,
+      "Light Defense": 10,
+      "Dark Defense": 15,
+      "Crafting Speed": 15,
+      "Gathering Speed": 7,
+      "Hunger": 10,
+    },
+  },
+  {
+    name: "Conor",
+    image: Hero5,
+    stats: {
+      "Fire Attack": 9,
+      "Water Attack": 8,
+      "Light Attack": 14,
+      "Dark Attack": 11,
+      "Fire Defense": 6,
+      "Water Defense": 7,
+      "Light Defense": 12,
+      "Dark Defense": 10,
+      "Crafting Speed": 12,
+      "Gathering Speed": 15,
+      "Hunger": 12,
+    },
+  }
 ];

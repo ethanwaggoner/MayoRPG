@@ -6,7 +6,7 @@ import LightAttackIcon from "@/assets/items/tile000.png";
 
 import FireDefenseIcon from "@/assets/items/tile117.png";
 import WaterDefenseIcon from "@/assets/items/tile053.png";
-import DarkDefenseIcon from "@/assets/items/tile117.png";
+import DarkDefenseIcon from "@/assets/items/tile085.png";
 import LightDefenseIcon from "@/assets/items/tile021.png";
 
 import CraftingIcon from "@/assets/items/tile924.png";
