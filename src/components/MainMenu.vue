@@ -1,16 +1,23 @@
 <script setup>
-import { ref } from 'vue';
+import {computed, ref} from 'vue';
+import {useHeroStore} from "@/store/HeroStore.js";
 
 import Inventory from '@/assets/items/tile952.png';
 import Fight from '@/assets/items/tile486.png';
 import Shop from '@/assets/items/tile735.png';
 import Craft from '@/assets/items/tile435.png';
 
+const heroStore = useHeroStore();
+
+const hero1Name = computed(() => heroStore.hero1?.name ?? 'Hero 1');
+const hero2Name = computed(() => heroStore.hero2?.name ?? 'Hero 2');
+const hero3Name = computed(() => heroStore.hero3?.name ?? 'Hero 3');
+
 const buttons = ref([
   { label: 'Inventory', icon: Inventory, options: [
-    { name: 'Hero1', icon: Inventory },
-    { name: 'Hero2', icon: Inventory },
-    { name: 'Hero3', icon: Inventory }
+    { name: hero1Name.value, icon: Inventory },
+    { name: hero2Name.value, icon: Inventory },
+    { name: hero3Name.value, icon: Inventory }
   ] },
   { label: 'Fight', icon: Fight, options: [
     { name: 'Battlefield', icon: Fight },
