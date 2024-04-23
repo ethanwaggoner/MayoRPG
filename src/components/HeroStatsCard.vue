@@ -24,17 +24,17 @@ const navigateToNewHero = () => {
 };
 
 const icons = {
-  "Fire Attack": FireAttackIcon,
-  "Water Attack": WaterAttackIcon,
-  "Dark Attack": DarkAttackIcon,
-  "Light Attack": LightAttackIcon,
-  "Fire Defense": FireDefenseIcon,
-  "Water Defense": WaterDefenseIcon,
-  "Dark Defense": DarkDefenseIcon,
-  "Light Defense": LightDefenseIcon,
-  "Crafting Speed": CraftingIcon,
-  "Gathering Speed": GatheringIcon,
-  "Hunger": HungerIcon
+  "fireAttack": FireAttackIcon,
+  "waterAttack": WaterAttackIcon,
+  "darkAttack": DarkAttackIcon,
+  "lightAttack": LightAttackIcon,
+  "fireDefense": FireDefenseIcon,
+  "waterDefense": WaterDefenseIcon,
+  "darkDefense": DarkDefenseIcon,
+  "lightDefense": LightDefenseIcon,
+  "craftingSpeed": CraftingIcon,
+  "gatheringSpeed": GatheringIcon,
+  "hunger": HungerIcon
 };
 const props = defineProps({
   hero: Object,
@@ -42,14 +42,14 @@ const props = defineProps({
 });
 
 const attackAndCraftingStats = computed(() => {
-  return Object.entries(props.hero.stats).filter(([key, value]) =>
-    key.endsWith('Attack') || key.includes('Crafting') || key.includes('Hunger')
+  return Object.entries(props.hero).filter(([key, value]) =>
+    key.endsWith('Attack') || key.includes('crafting') || key.includes('hunger')
   );
 });
 
 const defenseAndOtherStats = computed(() => {
-  return Object.entries(props.hero.stats).filter(([key, value]) =>
-    key.endsWith('Defense') || key.includes('Gathering')
+  return Object.entries(props.hero).filter(([key, value]) =>
+    key.endsWith('Defense') || key.includes('gathering')
   );
 });
 
@@ -83,8 +83,6 @@ const defenseAndOtherStats = computed(() => {
     </div>
   </div>
 </template>
-
-
 
 
 <style scoped>

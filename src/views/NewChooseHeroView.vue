@@ -9,6 +9,7 @@ const router = useRouter();
 const heroStore = useHeroStore();
 
 const heroes = ref([...heroStore.heroes]);
+const error = ref(heroStore.errorMessage);
 const currentIndex = ref(0);
 
 const selectedHero = computed(() => heroes.value[currentIndex.value]);
@@ -32,10 +33,6 @@ function selectHero(hero) {
   heroStore.selectHero(hero.name);
 }
 
-function save() {
-  heroStore.saveAllHeroData();
-}
-
 function moveLeft() {
   currentIndex.value = adjustIndex(currentIndex.value - 1);
 }
@@ -46,6 +43,7 @@ function moveRight() {
 
 function navigateToDashboard() {
   selectHero(selectedHero.value);
+  console.log(heroStore.hero1)
   router.push({ name: 'MainDashboard' });
 
 }

@@ -8,6 +8,7 @@ import Hero7 from '@/assets/hero7animate.gif';
 import Hero8 from '@/assets/hero8animate.gif';
 import Hero9 from '@/assets/hero9animate.gif';
 import Hero10 from '@/assets/hero10animate.gif';
+import Hero11 from '@/assets/hero11animate.gif';
 
 export const NewHeroStats = [
   {
@@ -178,6 +179,23 @@ export const NewHeroStats = [
       "Crafting Speed": 15,
       "Gathering Speed": 7,
       "Hunger": 10,
+    },
+  },
+  {
+    name: "Nik",
+    image: Hero11,
+    stats: {
+      "Fire Attack": 9,
+      "Water Attack": 12,
+      "Light Attack": 14,
+      "Dark Attack": 11,
+      "Fire Defense": 7,
+      "Water Defense": 10,
+      "Light Defense": 12,
+      "Dark Defense": 15,
+      "Crafting Speed": 12,
+      "Gathering Speed": 15,
+      "Hunger": 9,
     },
   },
 ];
