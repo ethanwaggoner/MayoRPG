@@ -23,9 +23,7 @@ export const NewHeroStats = [
       "Water Defense": 9,
       "Light Defense": 5,
       "Dark Defense": 14,
-      "Crafting Speed": 6,
-      "Gathering Speed": 8,
-      "Hunger": 4,
+      "Health": 120
     },
   },
   {
@@ -40,9 +38,7 @@ export const NewHeroStats = [
       "Water Defense": 6,
       "Light Defense": 12,
       "Dark Defense": 8,
-      "Crafting Speed": 14,
-      "Gathering Speed": 18,
-      "Hunger": 10,
+      "Health": 100
     },
   },
   {
@@ -57,9 +53,7 @@ export const NewHeroStats = [
       "Water Defense": 14,
       "Light Defense": 8,
       "Dark Defense": 12,
-      "Crafting Speed": 20,
-      "Gathering Speed": 6,
-      "Hunger": 8,
+      "Health": 140
     },
   },
   {
@@ -74,9 +68,7 @@ export const NewHeroStats = [
       "Water Defense": 18,
       "Light Defense": 10,
       "Dark Defense": 15,
-      "Crafting Speed": 10,
-      "Gathering Speed": 7,
-      "Hunger": 15,
+      "Health": 150
     },
   },
   {
@@ -91,9 +83,7 @@ export const NewHeroStats = [
       "Water Defense": 7,
       "Light Defense": 12,
       "Dark Defense": 10,
-      "Crafting Speed": 12,
-      "Gathering Speed": 15,
-      "Hunger": 12,
+      "Health": 105
     },
   },
   {
@@ -108,9 +98,7 @@ export const NewHeroStats = [
       "Water Defense": 12,
       "Light Defense": 10,
       "Dark Defense": 15,
-      "Crafting Speed": 7,
-      "Gathering Speed": 10,
-      "Hunger": 9,
+      "Health": 130
     },
   },
   {
@@ -125,9 +113,7 @@ export const NewHeroStats = [
       "Water Defense": 6,
       "Light Defense": 9,
       "Dark Defense": 12,
-      "Crafting Speed": 15,
-      "Gathering Speed": 12,
-      "Hunger": 7,
+      "Health": 110
     },
   },
   {
@@ -142,9 +128,7 @@ export const NewHeroStats = [
       "Water Defense": 6,
       "Light Defense": 9,
       "Dark Defense": 12,
-      "Crafting Speed": 12,
-      "Gathering Speed": 15,
-      "Hunger": 7,
+      "Health": 115
     },
   },
   {
@@ -159,9 +143,7 @@ export const NewHeroStats = [
       "Water Defense": 15,
       "Light Defense": 12,
       "Dark Defense": 18,
-      "Crafting Speed": 9,
-      "Gathering Speed": 12,
-      "Hunger": 9,
+      "Health": 145
     },
   },
   {
@@ -176,9 +158,7 @@ export const NewHeroStats = [
       "Water Defense": 9,
       "Light Defense": 10,
       "Dark Defense": 15,
-      "Crafting Speed": 15,
-      "Gathering Speed": 7,
-      "Hunger": 10,
+      "Health": 135
     },
   },
   {
@@ -193,9 +173,7 @@ export const NewHeroStats = [
       "Water Defense": 10,
       "Light Defense": 12,
       "Dark Defense": 15,
-      "Crafting Speed": 12,
-      "Gathering Speed": 15,
-      "Hunger": 9,
+      "Health": 125
     },
   },
 ];

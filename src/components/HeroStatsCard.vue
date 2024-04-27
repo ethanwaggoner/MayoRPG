@@ -43,13 +43,13 @@ const props = defineProps({
 
 const attackAndCraftingStats = computed(() => {
   return Object.entries(props.hero).filter(([key, value]) =>
-    key.endsWith('Attack') || key.includes('crafting') || key.includes('hunger')
+    key.endsWith('Attack')
   );
 });
 
 const defenseAndOtherStats = computed(() => {
   return Object.entries(props.hero).filter(([key, value]) =>
-    key.endsWith('Defense') || key.includes('gathering')
+    key.endsWith('Defense')
   );
 });
 
@@ -58,9 +58,13 @@ const defenseAndOtherStats = computed(() => {
 <template>
   <div class="hero-card" :class="{ 'is-selected': props.isSelected }">
     <div v-if="props.hero">
-      <!-- Existing hero card content -->
       <h2>{{ props.hero.name }}</h2>
       <img :src="props.hero.image" :alt="props.hero.name" class="hero-image">
+      <div class="level-experience">
+        <h3>Level: {{ props.hero.level }}</h3>
+        <p>{{ props.hero.heroClass }}</p>
+        <p>Experience: {{ props.hero.experience }} / {{ props.hero.requiredExperience }}</p>
+      </div>
       <div class="hero-stats">
         <div class="stat-column">
           <div v-for="([key, value]) in attackAndCraftingStats" :key="'attack-' + key" class="stat-row">
@@ -97,6 +101,11 @@ const defenseAndOtherStats = computed(() => {
   flex-direction: column;
   flex: 1;
   padding: 0 10px;
+}
+
+.level-experience {
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 .hero-card {

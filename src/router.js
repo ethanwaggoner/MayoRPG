@@ -3,6 +3,7 @@ import { createWebHistory, createRouter } from 'vue-router'
 const StartScreenView = () => import('./views/StartScreenView.vue');
 const NewChooseHeroView = () => import('./views/NewChooseHeroView.vue');
 const MainDashboardView = () => import('./views/MainDashboardView.vue');
+const NewChooseClassView = () => import('./views/NewChooseClassView.vue');
 
 const routes = [
     {
@@ -18,9 +19,13 @@ const routes = [
     {
         path: '/main/dashboard',
         name: 'MainDashboard',
-        component: MainDashboardView
+        component: MainDashboardView,
+    },
+    {
+        path: '/new/choose-class',
+        name: 'NewChooseClass',
+        component: NewChooseClassView
     }
-
 ]
 
 const router = createRouter({

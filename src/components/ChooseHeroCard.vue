@@ -13,6 +13,8 @@ import LightDefenseIcon from "@/assets/items/tile021.png";
 import CraftingIcon from "@/assets/items/tile924.png";
 import GatheringIcon from "@/assets/items/tile849.png";
 import HungerIcon from "@/assets/items/tile913.png";
+import HealthIcon from "@/assets/items/tile403.png";
+
 import {computed} from "vue";
 
 const icons = {
@@ -26,8 +28,10 @@ const icons = {
   "Light Defense": LightDefenseIcon,
   "Crafting Speed": CraftingIcon,
   "Gathering Speed": GatheringIcon,
-  "Hunger": HungerIcon
+  "Hunger": HungerIcon,
+  "Health": HealthIcon
 };
+
 const props = defineProps({
   hero: Object,
   isSelected: Boolean
@@ -35,13 +39,13 @@ const props = defineProps({
 
 const attackAndCraftingStats = computed(() => {
   return Object.entries(props.hero.stats).filter(([key, value]) =>
-    key.endsWith('Attack') || key.includes('Crafting') || key.includes('Hunger')
+    key.endsWith('Attack')
   );
 });
 
 const defenseAndOtherStats = computed(() => {
   return Object.entries(props.hero.stats).filter(([key, value]) =>
-    key.endsWith('Defense') || key.includes('Gathering')
+    key.endsWith('Defense')
   );
 });
 
@@ -51,6 +55,11 @@ const defenseAndOtherStats = computed(() => {
   <div class="hero-card">
     <h2>{{ props.hero.name }}</h2>
     <img :src="props.hero.image" :alt="props.hero.name" class="hero-image">
+    <div class="health">
+      <img :src="icons.Health" class="stat-icon">
+      <span class="stat-label">Health:</span>
+      <span class="stat-value">{{ props.hero.stats.Health }}</span>
+    </div>
     <div class="hero-stats">
       <div class="stat-column">
         <!-- Attack Stats + Crafting and Gathering -->
@@ -97,6 +106,10 @@ const defenseAndOtherStats = computed(() => {
   width: 300px;
   height: 450px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.health {
+  margin-bottom: 20px;
 }
 
 .stat-row {

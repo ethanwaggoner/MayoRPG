@@ -4,12 +4,19 @@ import Logo from "@/components/Logo.vue";
 import HeroStatsCard from "@/components/HeroStatsCard.vue";
 
 import {useHeroStore} from "@/store/HeroStore.js";
+import {onMounted} from "vue";
+import {useRouter} from "vue-router";
 
 const heroStore = useHeroStore();
+const router = useRouter();
 
 const hero1 = heroStore.hero1;
 const hero2 = heroStore.hero2;
 const hero3 = heroStore.hero3;
+
+onMounted(() => {
+  heroStore.loadHeroData();
+});
 
 </script>
 

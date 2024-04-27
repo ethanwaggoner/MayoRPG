@@ -43,14 +43,14 @@ function moveRight() {
 
 function navigateToDashboard() {
   selectHero(selectedHero.value);
-  console.log(heroStore.hero1)
-  router.push({ name: 'MainDashboard' });
+  router.push({ name: 'NewChooseClass' });
 
 }
 
 onMounted(() => {
   heroStore.loadHeroData();
 });
+
 </script>
 
 <template>

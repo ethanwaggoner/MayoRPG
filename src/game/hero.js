@@ -5,7 +5,11 @@ export class Hero {
     }
 
     this.name = heroData.name;
+    this.heroNumber = heroData.heroNumber;
     this.image = heroData.image;
+    this.heroClass = heroData.heroClass;
+
+    this.health = heroData.stats["Health"];
 
     this.fireAttack = heroData.stats["Fire Attack"];
     this.waterAttack = heroData.stats["Water Attack"];
@@ -21,44 +25,67 @@ export class Hero {
 
     this.level = 1;
     this.experience = 0;
+    this.requiredExperience = 100;
   }
 
   serialize() {
-    return JSON.stringify(this);
+    return JSON.stringify({
+      name: this.name,
+      heroNumber: this.heroNumber,
+      image: this.image,
+      heroClass: this.heroClass,
+      stats: {
+        "Health": this.health,
+        "Fire Attack": this.fireAttack,
+        "Water Attack": this.waterAttack,
+        "Light Attack": this.lightAttack,
+        "Dark Attack": this.darkAttack,
+        "Fire Defense": this.fireDefense,
+        "Water Defense": this.waterDefense,
+        "Light Defense": this.lightDefense,
+        "Dark Defense": this.darkDefense,
+        "Crafting Speed": this.craftingSpeed,
+        "Gathering Speed": this.gatheringSpeed,
+        "Hunger": this.hunger
+      },
+      level: this.level,
+      experience: this.experience,
+      requiredExperience: this.requiredExperience
+    });
   }
 
   static deserialize(data) {
-    if (!data) {
-      return null;
-    }
-
+    if (!data) return null;
     let obj;
     try {
       obj = JSON.parse(data);
-      if (!obj || typeof obj !== 'object') {
-        return null;
-      }
+      if (!obj || typeof obj !== 'object') return null;
     } catch (e) {
       console.error("Deserialization error: ", e);
       return null;
     }
-    console.log(obj.name)
+
     return new Hero({
       name: obj.name,
       image: obj.image,
+      heroClass: obj.heroClass,
       stats: {
-        "Fire Attack": obj.fireAttack,
-        "Water Attack": obj.waterAttack,
-        "Light Attack": obj.lightAttack,
-        "Dark Attack": obj.darkAttack,
-        "Fire Defense": obj.fireDefense,
-        "Water Defense": obj.waterDefense,
-        "Light Defense": obj.lightDefense,
-        "Dark Defense": obj.darkDefense,
-        "Crafting Speed": obj.craftingSpeed,
-        "Gathering Speed": obj.gatheringSpeed,
-        "Hunger": obj.hunger
-      }
+        "Health": obj.stats["Health"],
+        "Fire Attack": obj.stats["Fire Attack"],
+        "Water Attack": obj.stats["Water Attack"],
+        "Light Attack": obj.stats["Light Attack"],
+        "Dark Attack": obj.stats["Dark Attack"],
+        "Fire Defense": obj.stats["Fire Defense"],
+        "Water Defense": obj.stats["Water Defense"],
+        "Light Defense": obj.stats["Light Defense"],
+        "Dark Defense": obj.stats["Dark Defense"],
+        "Crafting Speed": obj.stats["Crafting Speed"],
+        "Gathering Speed": obj.stats["Gathering Speed"],
+        "Hunger": obj.stats["Hunger"]
+      },
+      level: obj.level,
+      experience: obj.experience,
+      requiredExperience: obj.requiredExperience
     });
   }
 }
