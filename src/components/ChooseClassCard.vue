@@ -88,7 +88,7 @@ onMounted(async () => {
   text-align: center;
   padding: 20px;
   border-radius: 8px;
-  background-color: #1e2833;
+  background: linear-gradient(135deg, #0c5460 0%, #203647 100%);
   color: #fff;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.5s ease;

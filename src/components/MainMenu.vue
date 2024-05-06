@@ -83,7 +83,7 @@ const buttons = ref([
   align-items: center;
   padding: 20px;
   border-radius: 10px;
-  background-image: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+  background: linear-gradient(135deg, #0c5460 0%, #203647 100%);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s, box-shadow 0.3s;
   margin: 5px;

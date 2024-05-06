@@ -3,6 +3,7 @@ import SideBarMenu from "@/components/SideBarMenu.vue";
 import Inventory from "@/components/Inventory.vue";
 import HeroGroup from "@/components/HeroGroup.vue";
 import TopBarStats from "@/components/TopBarStats.vue";
+import BattleButton from "@/components/BattleButton.vue";
 
 import {useHeroStore} from "@/store/HeroStore.js";
 import {onMounted} from "vue";
@@ -38,7 +39,14 @@ onMounted(() => {
             <HeroGroup />
           </div>
         </div>
-        <Inventory />
+        <div class="row">
+          <div class="col-10">
+            <Inventory />
+          </div>
+          <div class="col-2 align-self-end">
+            <BattleButton />
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -47,10 +55,16 @@ onMounted(() => {
 
 <style scoped>
 .container {
-  margin-top: 5rem;
-  width: 80%;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 2.5rem 2.5rem 0 2.5rem;
+  margin-top: 3rem;
+  width: 100%;
   height: 100%;
+  scale: 1.1;
 }
+
 </style>
 
 

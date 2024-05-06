@@ -20,8 +20,9 @@
 
 <style scoped>
 h2 {
-  color: white;
   font-size: 2rem;
+  color: #f8facc;
+  font-family: 'Almendra', serif;
 }
 
 .hero-container {
@@ -50,7 +51,7 @@ h2 {
   padding-bottom: 32%;
   position: relative;
   margin: 15px;
-  background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+  background: linear-gradient(135deg, #0c5460 0%, #203647 100%);
 }
 
 .hero-square:hover {

@@ -3,12 +3,20 @@ import Logo from "@/components/Logo.vue";
 </script>
 
 <template>
-  <transition name="fade-slide">
-    <router-view />
-  </transition>
+  <div class="row">
+    <div class="col-1">
+      <Logo />
+    </div>
+    <div class="col-9">
+      <transition name="fade-slide">
+        <router-view />
+      </transition>
+    </div>
+  </div>
 </template>
 
 <style scoped>
+
 .fade-slide-enter-active, .fade-slide-leave-active {
   transition: opacity 0.5s, transform 0.5s;
 }

@@ -37,14 +37,16 @@ function navigate(route) {
 
 <style scoped>
 .sidebar {
-  width: 60%;
-  height: 80vh;
-  background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0c5460 0%, #203647 100%); /* Darker, more mysterious gradient */
+  border-radius: 10px;
   padding: 1rem;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+  box-shadow: 2px 0 5px rgba(0,0,0,0.5); /* Deeper shadow for more depth */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 }
 
 .sidebar ul {
@@ -54,16 +56,19 @@ function navigate(route) {
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
 }
 
 .sidebar li {
   display: flex;
   align-items: center;
   padding: 12px;
+  border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
   flex-grow: 1;
-  border-bottom: 1px solid white;
+  border-bottom: 3px groove #ddd; /* Make the dividers more pronounced */
+  background: rgba(0, 0, 0, 0.2); /* Slight transparency for depth */
 }
 
 .sidebar li:last-child {
@@ -71,8 +76,8 @@ function navigate(route) {
 }
 
 .sidebar li:hover {
-  background-color: #2c3e60;
-  transform: scale(1.05);
+  background-color: rgba(44, 62, 80, 0.8); /* Adjusted hover color for better visibility */
+  transform: scale(1.1); /* Slightly larger scale on hover */
 }
 
 .icon {
@@ -82,12 +87,15 @@ function navigate(route) {
 }
 
 .sidebar span {
-  font-size: 1.5rem;
-  color: white;
-  font-family: 'Arial', sans-serif;
+  font-size: 2rem;
+  color: #f8facc;
+  font-family: 'Almendra', serif;
 }
 
-
+@font-face {
+  font-family: 'Almendra';
+  src: url('https://fonts.googleapis.com/css2?family=Almendra&display=swap');
+}
 </style>
 
 
