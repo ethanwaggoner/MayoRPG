@@ -63,6 +63,7 @@ const defenseAndOtherStats = computed(() => {
       <div class="level-experience">
         <h3>Level: {{ props.hero.level }}</h3>
         <p>{{ props.hero.heroClass }}</p>
+        <p>Health {{ props.hero.health }}</p>
         <p>Experience: {{ props.hero.experience }} / {{ props.hero.requiredExperience }}</p>
       </div>
       <div class="hero-stats">
@@ -114,8 +115,9 @@ const defenseAndOtherStats = computed(() => {
   padding: 40px;
   text-align: center;
   color: #fff;
-  width: 300px;
-  height: 450px;
+  width: 80%;
+  height: 30rem;
+  margin: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 

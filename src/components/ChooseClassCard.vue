@@ -9,9 +9,18 @@ const props = defineProps({
 });
 
 const classDetails = ref([
-  { name: 'Warrior', src: '', description: "Brave and bold, excels in melee combat and defense." },
-  { name: 'Wizard', src: '', description: "Master of the arcane, wields powerful spells." },
-  { name: 'Ranger', src: '', description: "Stealthy and agile, expert in ranged attacks and survival." }
+  { name: 'Berserker', src: '', description: "Brave and bold, excels in melee combat and defense.", stats: [
+      "+5 All Defense",
+      "+30 Health",
+    ]},
+  { name: 'Wizard', src: '', description: "Master of the arcane, wields powerful spells.", stats: [
+      "+5 All Attack",
+      "+50 Mana",
+    ]},
+  { name: 'Hunter', src: '', description: "Stealthy and agile, expert in ranged attacks and survival.", stats: [
+      "+3 All Attack",
+      "+10% Base Crit Chance",
+    ]},
 ]);
 
 function selectClass(className) {
@@ -57,6 +66,7 @@ onMounted(async () => {
     <div class="class-card" v-for="classInfo in classDetails" :key="classInfo.name" @click="selectClass(classInfo.name)">
       <h3>{{ classInfo.name }}</h3>
       <img :src="classInfo.src" :alt="`${classInfo.name} animation`" class="class-animation">
+      <p v-for="stat in classInfo.stats" :key="stat">{{ stat }}</p>
       <p>{{ classInfo.description }}</p>
     </div>
   </div>

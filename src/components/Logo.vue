@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from 'vue';
 import logo from '@/assets/logo-no-background.png';
 </script>
 
@@ -13,7 +12,6 @@ import logo from '@/assets/logo-no-background.png';
 
 <style scoped>
 .logo-container {
-  position: absolute;
   top: 20px;
   left: 20px;
   z-index: 100;

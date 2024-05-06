@@ -1,7 +1,8 @@
 <script setup>
-import MainMenu from "@/components/MainMenu.vue";
-import Logo from "@/components/Logo.vue";
-import HeroStatsCard from "@/components/HeroStatsCard.vue";
+import SideBarMenu from "@/components/SideBarMenu.vue";
+import Inventory from "@/components/Inventory.vue";
+import HeroGroup from "@/components/HeroGroup.vue";
+import TopBarStats from "@/components/TopBarStats.vue";
 
 import {useHeroStore} from "@/store/HeroStore.js";
 import {onMounted} from "vue";
@@ -10,9 +11,6 @@ import {useRouter} from "vue-router";
 const heroStore = useHeroStore();
 const router = useRouter();
 
-const hero1 = heroStore.hero1;
-const hero2 = heroStore.hero2;
-const hero3 = heroStore.hero3;
 
 onMounted(() => {
   heroStore.loadHeroData();
@@ -21,14 +19,26 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="app-container">
-    <Logo />
-    <div class="center-dashboard">
-      <MainMenu />
-      <div class="party-container">
-        <HeroStatsCard :hero="hero2"/>
-        <HeroStatsCard :hero="hero1" />
-        <HeroStatsCard :hero="hero3"/>
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <SideBarMenu />
+      </div>
+      <div class="col-8">
+        <div class="row">
+          <div class="col-12">
+            <TopBarStats />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <HeroGroup />
+          </div>
+          <div class="col-6">
+            <HeroGroup />
+          </div>
+        </div>
+        <Inventory />
       </div>
     </div>
   </div>
@@ -36,15 +46,11 @@ onMounted(() => {
 
 
 <style scoped>
-.party-container {
-  margin-top: 6rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
-
+.container {
+  margin-top: 5rem;
+  width: 80%;
+  height: 100%;
 }
-
 </style>
+
+

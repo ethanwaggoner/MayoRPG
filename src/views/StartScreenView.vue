@@ -1,7 +1,6 @@
 <script setup>
 import { useRouter } from "vue-router";
 import { useHeroStore } from "@/store/HeroStore.js";
-import Logo from "@/components/Logo.vue";
 
 const router = useRouter();
 const heroStore = useHeroStore();
@@ -28,7 +27,6 @@ const newGame = () => {
 <template>
   <div class="start-screen">
     <div class="animated-background"></div>
-    <Logo />
     <div class="content">
       <h1>MayoRPG</h1>
       <div class="button-container">

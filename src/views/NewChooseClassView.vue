@@ -1,7 +1,6 @@
 <script setup>
 import HeroStatsCard from "@/components/HeroStatsCard.vue";
 import ChooseClassCard from "@/components/ChooseClassCard.vue";
-import Logo from "@/components/Logo.vue";
 import { useHeroStore} from "@/store/HeroStore.js";
 
 import { useRouter } from 'vue-router';
@@ -30,10 +29,9 @@ const Back = () => {
 
 <template>
   <div class="centered-container">
-    <Logo />
     <div class="cards-container">
       <HeroStatsCard :hero="hero" class="hero-stats-card" />
-      <div class="classes">
+      <div class="choose-class">
         <h1 class="title">Choose Your Class</h1>
         <ChooseClassCard :hero="hero" class="choose-class-card" @click="Continue" />
       </div>
@@ -49,6 +47,7 @@ const Back = () => {
   color: #fff;
   text-align: center;
   font-size: 1.5rem;
+  margin-top: 0;
   margin-bottom: .5rem;
   margin-left: 1rem;
   font-family: 'Press Start 2P', cursive;
@@ -61,7 +60,6 @@ const Back = () => {
   box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.4);
 }
 
-
 .centered-container {
   display: flex;
   flex-direction: column;
@@ -72,21 +70,22 @@ const Back = () => {
 }
 
 .cards-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
   width: 80%;
-  justify-content: space-around;
+  align-items: stretch;
   margin-bottom: 20px;
 }
 
-.hero-stats-card, .choose-class-card {
-  flex: 1;
-  padding: 20px;
+.hero-stats-card, .choose-class {
+  display: flex;
+  flex-direction: column;
 }
-
 .button-container {
   display: flex;
-  justify-content: center;
-  width: 100%;
+  justify-content: flex-end;
+  width: 80%;
 }
 
 button {

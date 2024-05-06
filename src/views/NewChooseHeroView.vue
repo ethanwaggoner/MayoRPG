@@ -2,7 +2,6 @@
 import { computed, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import ChooseHeroCard from "@/components/ChooseHeroCard.vue";
-import Logo from "@/components/Logo.vue";
 import { useHeroStore } from "@/store/HeroStore.js";
 
 const router = useRouter();
@@ -55,7 +54,6 @@ onMounted(() => {
 
 <template>
   <div class="hero-selection">
-    <Logo />
     <h1 class="title">Choose Your Hero</h1>
     <div class="navigation-container">
       <button @click="moveLeft"> <<< </button>
