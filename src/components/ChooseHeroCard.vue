@@ -100,9 +100,11 @@ const defenseAndOtherStats = computed(() => {
 .hero-card {
   background-color: #0F111A;
   border-radius: 8px;
-  padding: 40px;
+  padding: 20px;
   text-align: center;
-  color: #fff;
+  font-size: 1rem;
+  color: #f8facc;
+  font-family: 'Almendra', serif;
   width: 300px;
   height: 450px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);

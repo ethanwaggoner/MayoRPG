@@ -112,9 +112,11 @@ const defenseAndOtherStats = computed(() => {
 .hero-card {
   background: linear-gradient(135deg, #0c5460 0%, #203647 100%);
   border-radius: 8px;
-  padding: 40px;
+  padding: 20px;
   text-align: center;
-  color: #fff;
+  font-size: 1rem;
+  color: #f8facc;
+  font-family: 'Almendra', serif;
   width: 80%;
   height: 30rem;
   margin: 1rem;

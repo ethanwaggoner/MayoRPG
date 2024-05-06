@@ -117,7 +117,7 @@ export const NewHeroStats = [
     },
   },
   {
-    name: "Elaine",
+    name: "Laine",
     image: Hero8,
     stats: {
       "Fire Attack": 6,

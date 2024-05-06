@@ -23,7 +23,7 @@ function routeToNewHero() {
         <template v-if="heroes.length >= index && heroes[index - 1].image">
           <div class="col-12 hero-card">
             <p>{{ heroes[index-1].name }} </p>
-            <p>Level: {{ heroes[index-1].level }}</p>
+            <p>Level: {{ heroes[index-1].level }} {{ heroes[index-1].heroClass }}</p>
             <img :src="heroes[index - 1].image" alt="Hero" class="hero-image" />
           </div>
         </template>
@@ -35,7 +35,7 @@ function routeToNewHero() {
         <template v-if="heroes.length >= index + 3 && heroes[index + 2].image">
           <div class="hero-card">
             <p>{{ heroes[index + 2].name }} </p>
-            <p>Level: {{ heroes[index + 2].level }}</p>
+            <p>Level: {{ heroes[index + 2].level }} {{ heroes[index + 2].heroClass }}</p>
             <img :src="heroes[index + 2].image" alt="Hero " class="hero-image" />
           </div>
         </template>
@@ -61,7 +61,6 @@ h2 {
   justify-content: center;
   width: 100%;
   max-width: 800px;
-  border: 2px solid white;
   margin-top: 1rem;
 }
 
@@ -80,7 +79,7 @@ h2 {
   height: 0; /* Set to 0 */
   padding-bottom: 32%; /* Maintains aspect ratio */
   position: relative;
-  margin: 15px;
+  margin: 10px;
   background: linear-gradient(135deg, #0c5460 0%, #203647 100%);
 }
 
@@ -94,12 +93,12 @@ h2 {
   justify-content: space-between; /* Distributes space evenly */
   width: 100%;
   height: 100%;
-  padding: 10px;
+  padding-bottom: 10px;
 }
 
 .hero-card p {
   margin: 2px 0; /* Reducing margin to make more space for the image */
-  font-size: 1rem; /* Smaller text to reduce space usage */
+  font-size: .75rem; /* Smaller text to reduce space usage */
   color: #f8facc;
 }
 
