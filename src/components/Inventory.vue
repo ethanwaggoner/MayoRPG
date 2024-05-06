@@ -30,11 +30,17 @@
 }
 
 .grid-item {
-  background: #ffffff;
-  border: 1px solid #ccc;
+  background: linear-gradient(145deg, #6e7075, #8a8c90);
+  border: 2px solid #444;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 50px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.grid-item:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
 }
 </style>

@@ -28,4 +28,9 @@ import Logo from "@/components/Logo.vue";
   opacity: 1;
   transform: translateY(0);
 }
+@font-face {
+  font-family: 'Almendra';
+  src: url('https://fonts.googleapis.com/css2?family=Almendra&display=swap');
+}
+
 </style>
