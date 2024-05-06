@@ -9,7 +9,7 @@ const heroStore = useHeroStore();
 const continueGame = () => {
   heroStore.loadHeroData();
 
-  if (heroStore.hero1) {
+  if (heroStore.HeroGroup1.length > 0) {
     router.push({ name: 'MainDashboard' });
   } else {
     alert("No existing game found. Please start a new game.");

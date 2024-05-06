@@ -5,10 +5,9 @@ import { Hero } from "@/game/hero.js";
 export const useHeroStore = defineStore('heroStore', {
     state: () => ({
         heroes: NewHeroStats,
-        selectedHero: null,
-        hero1: Hero.deserialize(localStorage.getItem('hero1') || 'null'),
-        hero2: Hero.deserialize(localStorage.getItem('hero2') || 'null'),
-        hero3: Hero.deserialize(localStorage.getItem('hero3') || 'null'),
+        selectedHero: null,  // Temporary storage for a hero being reviewed or customized
+        HeroGroup1: JSON.parse(localStorage.getItem('HeroGroup1') || '[]').map(Hero.deserialize),
+        HeroGroup2: JSON.parse(localStorage.getItem('HeroGroup2') || '[]').map(Hero.deserialize),
     }),
     getters: {
         heroById: (state) => (id) => {
@@ -18,48 +17,56 @@ export const useHeroStore = defineStore('heroStore', {
     actions: {
         selectHero(heroName) {
             const heroData = this.heroes.find(hero => hero.name === heroName);
-            if (!this.hero1) {
-                this.hero1 = new Hero(heroData);
-                this.selectedHero = this.hero1;
-                this.selectedHero.heroNumber = "hero1";
-                this.saveHeroData('hero1', this.selectedHero);
-            } else if (!this.hero2) {
-                this.hero2 = new Hero(heroData);
-                this.selectedHero = this.hero2;
-                this.selectedHero.heroNumber = "hero2";
-                this.saveHeroData('hero2', this.selectedHero);
-            } else if (!this.hero3) {
-                this.hero3 = new Hero(heroData);
-                this.selectedHero = this.hero3;
-                this.selectedHero.heroNumber = "hero3";
-                this.saveHeroData('hero3', this.selectedHero);
-            } else {
-                console.log('All hero slots are filled');
+            if (!heroData) {
+                console.error('Hero data not found');
+                return;
+            }
+
+
+            if (this.HeroGroup1.length < 5 || []){
+                this.selectedHero = new Hero(heroData);
+                this.selectedHero.heroGroup = 1;
+            } else if (this.HeroGroup2.length > 5 && this.HeroGroup2.length < 11) {
+                this.selectedHero = new Hero(heroData);
+                this.selectedHero.heroGroup = 2;
             }
         },
 
-        selectHeroClass(hero, className) {
-            hero.heroClass = className;
-            this.saveHeroData(hero.heroNumber, hero);
+        confirmHeroSelection(groupNumber) {
+            if (!this.selectedHero) {
+                console.error("No hero selected to confirm.");
+                return;
+            }
+
+            if (groupNumber === 1 && this.HeroGroup1.length < 5) {
+                this.HeroGroup1.push(this.selectedHero);
+                this.saveHeroData('HeroGroup1', this.HeroGroup1);
+            } else if (groupNumber === 2 && this.HeroGroup2.length < 5) {
+                this.HeroGroup2.push(this.selectedHero);
+                this.saveHeroData('HeroGroup2', this.HeroGroup2);
+            } else {
+                console.error('The selected hero group is full');
+            }
+
+            // Clear the selectedHero after adding it to a group
+            this.selectedHero = null;
         },
 
-        saveHeroData(heroKey, heroData) {
-            localStorage.setItem(heroKey, heroData.serialize());
+
+        saveHeroData(groupKey, heroDataArray) {
+            localStorage.setItem(groupKey, JSON.stringify(heroDataArray.map(hero => hero.serialize())));
         },
 
         loadHeroData() {
-            this.hero1 = Hero.deserialize(localStorage.getItem('hero1'));
-            this.hero2 = Hero.deserialize(localStorage.getItem('hero2'));
-            this.hero3 = Hero.deserialize(localStorage.getItem('hero3'));
+            this.HeroGroup1 = JSON.parse(localStorage.getItem('HeroGroup1') || '[]').map(Hero.deserialize);
+            this.HeroGroup2 = JSON.parse(localStorage.getItem('HeroGroup2') || '[]').map(Hero.deserialize);
         },
 
         clearHeroData() {
-            localStorage.removeItem('hero1');
-            localStorage.removeItem('hero2');
-            localStorage.removeItem('hero3');
-            this.hero1 = null;
-            this.hero2 = null;
-            this.hero3 = null;
+            localStorage.removeItem('HeroGroup1');
+            localStorage.removeItem('HeroGroup2');
+            this.HeroGroup1 = [];
+            this.HeroGroup2 = [];
         },
     }
 });

@@ -8,6 +8,7 @@ export class Hero {
     this.heroNumber = heroData.heroNumber;
     this.image = heroData.image;
     this.heroClass = heroData.heroClass;
+    this.heroGroup = heroData.heroGroup;
 
     this.health = heroData.stats["Health"];
 
@@ -34,6 +35,7 @@ export class Hero {
       heroNumber: this.heroNumber,
       image: this.image,
       heroClass: this.heroClass,
+      heroGroup: this.heroGroup,
       stats: {
         "Health": this.health,
         "Fire Attack": this.fireAttack,
@@ -69,6 +71,7 @@ export class Hero {
       name: obj.name,
       image: obj.image,
       heroClass: obj.heroClass,
+      heroGroup: obj.heroGroup,
       stats: {
         "Health": obj.stats["Health"],
         "Fire Attack": obj.stats["Fire Attack"],

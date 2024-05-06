@@ -1,46 +1,53 @@
 <script setup>
 import HeroStatsCard from "@/components/HeroStatsCard.vue";
 import ChooseClassCard from "@/components/ChooseClassCard.vue";
-import { useHeroStore} from "@/store/HeroStore.js";
-
+import { useHeroStore } from "@/store/HeroStore.js";
 import { useRouter } from 'vue-router';
+import {computed} from "vue";
 
 const router = useRouter();
-
 const heroStore = useHeroStore();
 
-const hero = heroStore.selectedHero;
+const hero = computed(() => heroStore.selectedHero);
+
 
 function selectHero(hero) {
-  heroStore.selectHeroClass(hero, hero.heroClass);
+  heroStore.confirmHeroSelection(hero.heroGroup);
 }
 
-
 const Continue = () => {
-  selectHero(hero);
+  if (!hero.value) {
+    alert("No hero selected. Please select a hero.");
+    return;
+  }
+  selectHero(hero.value);
   router.push({ name: 'MainDashboard' });
 };
 
 const Back = () => {
   router.push({ name: 'NewChooseHero' });
 };
-
 </script>
+
 
 <template>
   <div class="centered-container">
-    <div class="cards-container">
+    <div class="cards-container" v-if="hero">
       <HeroStatsCard :hero="hero" class="hero-stats-card" />
       <div class="choose-class">
         <h1 class="title">Choose Your Class</h1>
         <ChooseClassCard :hero="hero" class="choose-class-card" @click="Continue" />
       </div>
     </div>
+    <div v-else>
+      <p>Loading hero data or no hero selected...</p>
+    </div>
     <div class="button-container">
       <button @click="Back">Back</button>
     </div>
   </div>
 </template>
+
 
 <style scoped>
 .title {

@@ -6,12 +6,14 @@ import TopBarStats from "@/components/TopBarStats.vue";
 import BattleButton from "@/components/BattleButton.vue";
 
 import {useHeroStore} from "@/store/HeroStore.js";
-import {onMounted} from "vue";
+import {computed, onMounted} from "vue";
 import {useRouter} from "vue-router";
 
 const heroStore = useHeroStore();
 const router = useRouter();
 
+const heroes1 = computed(() => heroStore.HeroGroup1);
+const heroes2 = computed(() => heroStore.HeroGroup2);
 
 onMounted(() => {
   heroStore.loadHeroData();
@@ -33,10 +35,10 @@ onMounted(() => {
         </div>
         <div class="row">
           <div class="col-6">
-            <HeroGroup />
+            <HeroGroup :heroes="heroes1" />
           </div>
           <div class="col-6">
-            <HeroGroup />
+            <HeroGroup :heroes="heroes2" />
           </div>
         </div>
         <div class="row">
