@@ -21,15 +21,14 @@ export const useHeroStore = defineStore('heroStore', {
                 console.error('Hero data not found');
                 return;
             }
-
-
-            if (this.HeroGroup1.length < 5 || []){
+            console.log(this.HeroGroup1.length);
+            if (this.HeroGroup1.length < 5) {
                 this.selectedHero = new Hero(heroData);
                 this.selectedHero.heroGroup = 1;
-            } else if (this.HeroGroup2.length > 5 && this.HeroGroup2.length < 11) {
+            } else if (this.HeroGroup2.length < 5) {
                 this.selectedHero = new Hero(heroData);
                 this.selectedHero.heroGroup = 2;
-            }
+}
         },
 
         confirmHeroSelection(groupNumber) {

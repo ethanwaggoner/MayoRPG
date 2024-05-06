@@ -33,7 +33,11 @@ function routeToNewHero() {
     <div class="row">
       <div v-for="index in 2" :key="index + 3" class="hero-square">
         <template v-if="heroes.length >= index + 3 && heroes[index + 2].image">
-          <img :src="heroes[index + 2].image" alt="Hero " class="hero-image" />
+          <div class="hero-card">
+            <p>{{ heroes[index + 2].name }} </p>
+            <p>Level: {{ heroes[index + 2].level }}</p>
+            <img :src="heroes[index + 2].image" alt="Hero " class="hero-image" />
+          </div>
         </template>
         <span v-else class="plus" @click="routeToNewHero">+</span>
       </div>
