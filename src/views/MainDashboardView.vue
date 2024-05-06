@@ -4,6 +4,7 @@ import Inventory from "@/components/Inventory.vue";
 import HeroGroup from "@/components/HeroGroup.vue";
 import TopBarStats from "@/components/TopBarStats.vue";
 import BattleButton from "@/components/BattleButton.vue";
+import PlayerLevelBar from "@/components/PlayerLevelBar.vue";
 
 import {useHeroStore} from "@/store/HeroStore.js";
 import {computed, onMounted} from "vue";
@@ -42,6 +43,11 @@ onMounted(() => {
           </div>
         </div>
         <div class="row">
+          <div class="col-12">
+            <PlayerLevelBar />
+          </div>
+        </div>
+        <div class="row">
           <div class="col-10">
             <Inventory />
           </div>
@@ -55,6 +61,7 @@ onMounted(() => {
 </template>
 
 
+
 <style scoped>
 .container {
   background-color: rgba(0, 0, 0, 0.7);
@@ -64,7 +71,7 @@ onMounted(() => {
   margin-top: 3rem;
   width: 100%;
   height: 100%;
-  scale: 1.1;
+  scale: .9;
 }
 
 </style>
