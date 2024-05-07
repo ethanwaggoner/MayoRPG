@@ -62,7 +62,7 @@ onMounted(() => {
           v-for="(hero, index) in displayedHeroes"
           :key="hero.name"
           :hero="hero"
-          :is-selected="selectedHero.value === hero"
+          :is-selected="index === 1"
           @select="() => selectHero(hero)"
           :class="{ 'is-large': index === 1 }"
         />

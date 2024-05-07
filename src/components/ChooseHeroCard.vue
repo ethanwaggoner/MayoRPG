@@ -62,7 +62,6 @@ const defenseAndOtherStats = computed(() => {
     </div>
     <div class="hero-stats">
       <div class="stat-column">
-        <!-- Attack Stats + Crafting and Gathering -->
         <div v-for="([key, value]) in attackAndCraftingStats" :key="'attack-' + key" class="stat-row">
           <img :src="icons[key]" class="stat-icon">
           <span class="stat-label">{{ key }}:</span>
@@ -70,12 +69,15 @@ const defenseAndOtherStats = computed(() => {
         </div>
       </div>
       <div class="stat-column">
-        <!-- Defense Stats + Hunger -->
         <div v-for="([key, value]) in defenseAndOtherStats" :key="'defense-' + key" class="stat-row">
           <img :src="icons[key]" class="stat-icon">
           <span class="stat-label">{{ key }}:</span>
           <span class="stat-value">{{ value }}</span>
         </div>
+      </div>
+      <div v-if="props.isSelected" class="col-3 passive">
+        <h2>Passive</h2>
+        <p>{{ props.hero.passive.description}}</p>
       </div>
     </div>
   </div>
@@ -105,7 +107,7 @@ const defenseAndOtherStats = computed(() => {
   font-size: 1rem;
   color: #f8facc;
   font-family: 'Almendra', serif;
-  width: 300px;
+  width: 400px;
   height: 450px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
@@ -144,6 +146,15 @@ const defenseAndOtherStats = computed(() => {
   margin-bottom: 15px;
   border-radius: 50%;
   border: 3px solid #fff;
+}
+
+.passive {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 0;
 }
 
 </style>

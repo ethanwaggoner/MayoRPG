@@ -10,10 +10,17 @@ import Hero9 from '@/assets/hero9animate.gif';
 import Hero10 from '@/assets/hero10animate.gif';
 import Hero11 from '@/assets/hero11animate.gif';
 
+import {
+  EthanPassive, DrewPassive, JonathanPassive, NicholasPassive,
+  ConorPassive, MaraPassive, SavPassive, LainePassive, TomPassive,
+  CrisluigyPassive, NikPassive
+} from '@/data/Passives.js';
+
 export const NewHeroStats = [
   {
     name: "Ethan",
     image: Hero1,
+    passive: EthanPassive,
     stats: {
       "Fire Attack": 10,
       "Water Attack": 12,
@@ -29,6 +36,7 @@ export const NewHeroStats = [
   {
     name: "Drew",
     image: Hero2,
+    passive: DrewPassive,
     stats: {
       "Fire Attack": 8,
       "Water Attack": 6,
@@ -44,6 +52,7 @@ export const NewHeroStats = [
   {
     name: "Jonathan",
     image: Hero3,
+    passive: JonathanPassive,
     stats: {
       "Fire Attack": 12,
       "Water Attack": 9,
@@ -59,6 +68,7 @@ export const NewHeroStats = [
   {
     name: "Nicholas",
     image: Hero4,
+    passive: NicholasPassive,
     stats: {
       "Fire Attack": 14,
       "Water Attack": 11,
@@ -74,6 +84,7 @@ export const NewHeroStats = [
   {
     name: "Conor",
     image: Hero5,
+    passive: ConorPassive,
     stats: {
       "Fire Attack": 9,
       "Water Attack": 8,
@@ -89,6 +100,7 @@ export const NewHeroStats = [
   {
     name: "Mara",
     image: Hero6,
+    passive: MaraPassive,
     stats: {
       "Fire Attack": 11,
       "Water Attack": 14,
@@ -104,6 +116,7 @@ export const NewHeroStats = [
   {
     name: "Sav",
     image: Hero7,
+    passive: SavPassive,
     stats: {
       "Fire Attack": 7,
       "Water Attack": 9,
@@ -119,6 +132,7 @@ export const NewHeroStats = [
   {
     name: "Laine",
     image: Hero8,
+    passive: LainePassive,
     stats: {
       "Fire Attack": 6,
       "Water Attack": 8,
@@ -134,6 +148,7 @@ export const NewHeroStats = [
   {
     name: "Tom",
     image: Hero9,
+    passive: TomPassive,
     stats: {
       "Fire Attack": 12,
       "Water Attack": 14,
@@ -149,6 +164,7 @@ export const NewHeroStats = [
   {
     name: "Crisluigy",
     image: Hero10,
+    passive: CrisluigyPassive,
     stats: {
       "Fire Attack": 14,
       "Water Attack": 11,
@@ -164,6 +180,7 @@ export const NewHeroStats = [
   {
     name: "Nik",
     image: Hero11,
+    passive: NikPassive,
     stats: {
       "Fire Attack": 9,
       "Water Attack": 12,
@@ -174,6 +191,7 @@ export const NewHeroStats = [
       "Light Defense": 12,
       "Dark Defense": 15,
       "Health": 125
-    },
-  },
+    }
+}
 ];
+
