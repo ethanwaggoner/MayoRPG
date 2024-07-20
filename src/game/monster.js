@@ -17,7 +17,31 @@ export class Monster {
     this.waterDefense = monsterData.stats["Water Defense"];
     this.lightDefense = monsterData.stats["Light Defense"];
     this.darkDefense = monsterData.stats["Dark Defense"];
+    this.sprite = null;
   }
+
+  takeDamage(damage) {
+    this.health -= damage;
+    if (this.health <= 0) {
+      this.die();
+    }
+  }
+
+die() {
+  if (this.sprite) {
+    // Add a fade-out effect
+    this.sprite.scene.tweens.add({
+      targets: this.sprite,
+      alpha: 0,
+      duration: 500,
+      onComplete: () => {
+        this.sprite.destroy();
+      }
+    });
+  }
+}
+
+
 
   serialize() {
     return JSON.stringify({

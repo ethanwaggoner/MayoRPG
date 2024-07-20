@@ -14,6 +14,9 @@ export class Hero {
 
     this.health = heroData.stats["Health"];
 
+    this.attackCooldown = 1000; // 1 second cooldown between attacks
+    this.lastAttackTime = 0;
+
     this.fireAttack = heroData.stats["Fire Attack"];
     this.waterAttack = heroData.stats["Water Attack"];
     this.lightAttack = heroData.stats["Light Attack"];
@@ -31,9 +34,39 @@ export class Hero {
     this.requiredExperience = 100;
   }
 
+   calculateDamage() {
+      let damage = 0;
+      switch (this.heroClass) {
+        case 'Berserker':
+          damage = this.fireAttack;
+          break;
+        case 'Hunter':
+          damage = this.waterAttack;
+          break;
+        case 'Wizard':
+          damage = this.lightAttack;
+          break;
+      }
+      return damage;
+    }
+
+    attack(monster) {
+      const now = Date.now();
+      if (now - this.lastAttackTime >= this.attackCooldown) {
+        this.lastAttackTime = now;
+        const damage = this.calculateDamage();
+        monster.takeDamage(damage);
+        return damage; // Return the damage dealt for display purposes
+      }
+      return 0; // No damage dealt if still in cooldown
+    }
+
+
   serialize() {
     return JSON.stringify({
       name: this.name,
+      attackCooldown: this.attackCooldown,
+      lastAttackTime: this.lastAttackTime,
       heroNumber: this.heroNumber,
       image: this.image,
       spriteSheet: this.spriteSheet,
@@ -73,6 +106,8 @@ export class Hero {
 
     return new Hero({
       name: obj.name,
+      attackCooldown: obj.attackCooldown,
+      lastAttackTime: obj.lastAttackTime,
       image: obj.image,
       spriteSheet: obj.spriteSheet,
       heroClass: obj.heroClass,

@@ -35,15 +35,15 @@ export const NewHeroStats = [
     spriteSheet: Hero1Sprite,
     passive: EthanPassive,
     stats: {
-      "Fire Attack": 10,
-      "Water Attack": 12,
-      "Light Attack": 6,
-      "Dark Attack": 18,
+      "Fire Attack": 1000,
+      "Water Attack": 1200,
+      "Light Attack": 600,
+      "Dark Attack": 1800,
       "Fire Defense": 8,
       "Water Defense": 9,
       "Light Defense": 5,
       "Dark Defense": 14,
-      "Health": 120
+      "Health": 12000
     },
   },
   {
