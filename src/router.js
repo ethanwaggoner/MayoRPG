@@ -1,5 +1,6 @@
 import { createWebHistory, createRouter } from 'vue-router'
 
+const BattleView = () => import('./views/BattleView.vue');
 const StartScreenView = () => import('./views/StartScreenView.vue');
 const NewChooseHeroView = () => import('./views/NewChooseHeroView.vue');
 const MainDashboardView = () => import('./views/MainDashboardView.vue');
@@ -25,7 +26,12 @@ const routes = [
         path: '/new/choose-class',
         name: 'NewChooseClass',
         component: NewChooseClassView
-    }
+    },
+    {
+        path: '/battle',
+        name: 'Battle',
+        component: BattleView
+    },
 ]
 
 const router = createRouter({

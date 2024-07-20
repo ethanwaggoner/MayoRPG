@@ -5,7 +5,9 @@
 <template>
   <div class="battle-container">
     <h2 class="battle-text">To Battle!</h2>
-    <img src="@/assets/items/tile131.png" alt="To Battle" class="battle-image"/>
+    <router-link to="/battle">
+      <img src="@/assets/items/tile131.png" alt="To Battle" class="battle-image"/>
+    </router-link>
   </div>
 </template>
 

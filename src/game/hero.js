@@ -7,6 +7,7 @@ export class Hero {
     this.name = heroData.name;
     this.heroNumber = heroData.heroNumber;
     this.image = heroData.image;
+    this.spriteSheet = heroData.spriteSheet;
     this.heroClass = heroData.heroClass;
     this.heroGroup = heroData.heroGroup;
     this.passive = heroData.passive;
@@ -35,6 +36,7 @@ export class Hero {
       name: this.name,
       heroNumber: this.heroNumber,
       image: this.image,
+      spriteSheet: this.spriteSheet,
       heroClass: this.heroClass,
       heroGroup: this.heroGroup,
       passive: this.passive,
@@ -72,6 +74,7 @@ export class Hero {
     return new Hero({
       name: obj.name,
       image: obj.image,
+      spriteSheet: obj.spriteSheet,
       heroClass: obj.heroClass,
       heroGroup: obj.heroGroup,
       passive: obj.passive,

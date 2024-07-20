@@ -10,6 +10,18 @@ import Hero9 from '@/assets/hero9animate.gif';
 import Hero10 from '@/assets/hero10animate.gif';
 import Hero11 from '@/assets/hero11animate.gif';
 
+import Hero1Sprite from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Characters/96x96/Hero_01.png';
+import Hero2Sprite from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Characters/96x96/Hero_02.png';
+import Hero3Sprite from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Characters/96x96/Hero_03.png';
+import Hero4Sprite from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Characters/96x96/Hero_04.png';
+import Hero5Sprite from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Characters/96x96/Hero_05.png';
+import Hero6Sprite from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Characters/96x96/Hero_06.png';
+import Hero7Sprite from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Characters/96x96/Hero_07.png';
+import Hero8Sprite from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Characters/96x96/Hero_08.png';
+import Hero9Sprite from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Characters/96x96/Hero_09.png';
+import Hero10Sprite from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Characters/96x96/Hero_10.png';
+import Hero11Sprite from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Characters/96x96/Hero_11.png';
+
 import {
   EthanPassive, DrewPassive, JonathanPassive, NicholasPassive,
   ConorPassive, MaraPassive, SavPassive, LainePassive, TomPassive,
@@ -20,6 +32,7 @@ export const NewHeroStats = [
   {
     name: "Ethan",
     image: Hero1,
+    spriteSheet: Hero1Sprite,
     passive: EthanPassive,
     stats: {
       "Fire Attack": 10,
@@ -36,6 +49,7 @@ export const NewHeroStats = [
   {
     name: "Drew",
     image: Hero2,
+    spriteSheet: Hero2Sprite,
     passive: DrewPassive,
     stats: {
       "Fire Attack": 8,
@@ -52,6 +66,7 @@ export const NewHeroStats = [
   {
     name: "Jonathan",
     image: Hero3,
+    spriteSheet: Hero3Sprite,
     passive: JonathanPassive,
     stats: {
       "Fire Attack": 12,
@@ -68,6 +83,7 @@ export const NewHeroStats = [
   {
     name: "Nicholas",
     image: Hero4,
+    spriteSheet: Hero4Sprite,
     passive: NicholasPassive,
     stats: {
       "Fire Attack": 14,
@@ -84,6 +100,7 @@ export const NewHeroStats = [
   {
     name: "Conor",
     image: Hero5,
+    spriteSheet: Hero5Sprite,
     passive: ConorPassive,
     stats: {
       "Fire Attack": 9,
@@ -100,6 +117,7 @@ export const NewHeroStats = [
   {
     name: "Mara",
     image: Hero6,
+    spriteSheet: Hero6Sprite,
     passive: MaraPassive,
     stats: {
       "Fire Attack": 11,
@@ -116,6 +134,7 @@ export const NewHeroStats = [
   {
     name: "Sav",
     image: Hero7,
+    spriteSheet: Hero7Sprite,
     passive: SavPassive,
     stats: {
       "Fire Attack": 7,
@@ -132,6 +151,7 @@ export const NewHeroStats = [
   {
     name: "Laine",
     image: Hero8,
+    spriteSheet: Hero8Sprite,
     passive: LainePassive,
     stats: {
       "Fire Attack": 6,
@@ -148,6 +168,7 @@ export const NewHeroStats = [
   {
     name: "Tom",
     image: Hero9,
+    spriteSheet: Hero9Sprite,
     passive: TomPassive,
     stats: {
       "Fire Attack": 12,
@@ -164,6 +185,7 @@ export const NewHeroStats = [
   {
     name: "Crisluigy",
     image: Hero10,
+    spriteSheet: Hero10Sprite,
     passive: CrisluigyPassive,
     stats: {
       "Fire Attack": 14,
@@ -180,6 +202,7 @@ export const NewHeroStats = [
   {
     name: "Nik",
     image: Hero11,
+    spriteSheet: Hero11Sprite,
     passive: NikPassive,
     stats: {
       "Fire Attack": 9,
