@@ -8,7 +8,6 @@ export class Monster {
     this.spriteSheet = monsterData.spriteSheet;
 
     this.health = monsterData.stats["Health"];
-
     this.fireAttack = monsterData.stats["Fire Attack"];
     this.waterAttack = monsterData.stats["Water Attack"];
     this.lightAttack = monsterData.stats["Light Attack"];
@@ -17,7 +16,10 @@ export class Monster {
     this.waterDefense = monsterData.stats["Water Defense"];
     this.lightDefense = monsterData.stats["Light Defense"];
     this.darkDefense = monsterData.stats["Dark Defense"];
-    this.sprite = null;
+    this.sprite = null; // Initialize sprite as null
+
+    this.attackCooldown = 1000; // 1 second cooldown between attacks
+    this.lastAttackTime = 0;
   }
 
   takeDamage(damage) {
@@ -27,19 +29,26 @@ export class Monster {
     }
   }
 
-die() {
-  if (this.sprite) {
-    // Add a fade-out effect
-    this.sprite.scene.tweens.add({
-      targets: this.sprite,
-      alpha: 0,
-      duration: 500,
-      onComplete: () => {
-        this.sprite.destroy();
-      }
-    });
+  die() {
+    // Destroy the sprite associated with this monster
+    if (this.sprite) {
+      this.sprite.destroy();
+    }
   }
-}
+
+  calculateDamage() {
+    // Simple damage calculation
+    return this.fireAttack;
+  }
+
+  canAttack() {
+    const now = Date.now();
+    if (now - this.lastAttackTime >= this.attackCooldown) {
+      this.lastAttackTime = now;
+      return true;
+    }
+    return false;
+  }
 
 
 

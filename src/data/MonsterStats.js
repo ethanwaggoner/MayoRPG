@@ -1,14 +1,28 @@
-import Monster1Sprite from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Monsters/Sprites/Enemy_001_A.png';
-import Monster2Sprite from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Monsters/Sprites/Enemy_002_B.png';
-import Monster3Sprite from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Monsters/Sprites/Enemy_003_D.png';
-import Monster4Sprite from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Monsters/Sprites/Enemy_004_C.png';
-import Monster5Sprite from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Monsters/Sprites/Enemy_001_B.png';
+import Monster1SpriteA from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Monsters/Sprites/Enemy_001_A.png';
+import Monster1SpriteB from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Monsters/Sprites/Enemy_001_B.png';
+import Monster1SpriteC from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Monsters/Sprites/Enemy_001_C.png';
+import Monster1SpriteD from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Monsters/Sprites/Enemy_001_D.png';
+import Monster2SpriteA from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Monsters/Sprites/Enemy_002_A.png';
+import Monster2SpriteB from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Monsters/Sprites/Enemy_002_B.png';
+import Monster2SpriteC from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Monsters/Sprites/Enemy_002_C.png';
+import Monster2SpriteD from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Monsters/Sprites/Enemy_002_D.png';
+import Monster3SpriteA from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Monsters/Sprites/Enemy_003_A.png';
+import Monster3SpriteB from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Monsters/Sprites/Enemy_003_B.png';
+import Monster3SpriteC from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Monsters/Sprites/Enemy_003_C.png';
+import Monster3SpriteD from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Monsters/Sprites/Enemy_003_D.png';
+import Monster4SpriteA from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Monsters/Sprites/Enemy_004_A.png';
+import Monster4SpriteB from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Monsters/Sprites/Enemy_004_B.png';
+import Monster4SpriteC from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Monsters/Sprites/Enemy_004_C.png';
+import Monster4SpriteD from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Monsters/Sprites/Enemy_004_D.png';
 
 
 export const MonsterStats = [
   {
     name: "Goblin",
-    spriteSheet: Monster1Sprite,
+    spriteSheetA: Monster1SpriteA,
+    spriteSheetB: Monster1SpriteB,
+    spriteSheetC: Monster1SpriteC,
+    spriteSheetD: Monster1SpriteD,
     stats: {
       "Fire Attack": 6,
       "Water Attack": 4,
@@ -23,7 +37,10 @@ export const MonsterStats = [
   },
   {
     name: "Orc",
-    spriteSheet: Monster2Sprite,
+    spriteSheetA: Monster2SpriteA,
+    spriteSheetB: Monster2SpriteB,
+    spriteSheetC: Monster2SpriteC,
+    spriteSheetD: Monster2SpriteD,
     stats: {
       "Fire Attack": 12,
       "Water Attack": 10,
@@ -38,7 +55,10 @@ export const MonsterStats = [
   },
   {
     name: "Troll",
-    spriteSheet: Monster3Sprite,
+    spriteSheetA: Monster3SpriteA,
+    spriteSheetB: Monster3SpriteB,
+    spriteSheetC: Monster3SpriteC,
+    spriteSheetD: Monster3SpriteD,
     stats: {
       "Fire Attack": 10,
       "Water Attack": 8,
@@ -53,7 +73,10 @@ export const MonsterStats = [
   },
   {
     name: "Dragon",
-    spriteSheet: Monster4Sprite,
+    spriteSheetA: Monster4SpriteA,
+    spriteSheetB: Monster4SpriteB,
+    spriteSheetC: Monster4SpriteC,
+    spriteSheetD: Monster4SpriteD,
     stats: {
       "Fire Attack": 20,
       "Water Attack": 18,
@@ -66,19 +89,5 @@ export const MonsterStats = [
       "Health": 300
     },
   },
-  {
-    name: "Skeleton",
-    spriteSheet: Monster5Sprite,
-    stats: {
-      "Fire Attack": 7,
-      "Water Attack": 6,
-      "Light Attack": 9,
-      "Dark Attack": 8,
-      "Fire Defense": 4,
-      "Water Defense": 3,
-      "Light Defense": 5,
-      "Dark Defense": 6,
-      "Health": 90
-    },
-  }
+
 ];

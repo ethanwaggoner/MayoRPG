@@ -61,6 +61,18 @@ export class Hero {
       return 0; // No damage dealt if still in cooldown
     }
 
+    takeDamage(damage) {
+      this.health -= damage;
+      if (this.health <= 0) {
+        this.die();
+      }
+    }
+
+    die() {
+      if (this.sprite) {
+        this.sprite.destroy();
+      }
+    }
 
   serialize() {
     return JSON.stringify({
