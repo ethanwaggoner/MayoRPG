@@ -20,33 +20,59 @@ export function createHeroes(scene, heroes) {
 }
 
 export function createHeroAttackAnimation(scene, hero, index) {
-  let startFrame, endFrame;
+  const frameRate = 10 * scene.selectedSpeed.value;
+
+  // Idle animation
+  scene.anims.create({
+    key: `heroIdle${index}`,
+    frames: scene.anims.generateFrameNumbers(`hero${index}`, { start: 0, end: 5 }),
+    frameRate,
+    repeat: -1
+  });
+
+  // Attack animation
+  let attackStartFrame, attackEndFrame;
   switch (hero.heroClass) {
     case 'Berserker':
-      startFrame = 12;
-      endFrame = 23;
+      attackStartFrame = 12;
+      attackEndFrame = 23;
       break;
     case 'Hunter':
-      startFrame = 24;
-      endFrame = 29;
+      attackStartFrame = 24;
+      attackEndFrame = 29;
       break;
     case 'Wizard':
-      startFrame = 30;
-      endFrame = 35;
+      attackStartFrame = 30;
+      attackEndFrame = 35;
       break;
+    default:
+      attackStartFrame = 0;
+      attackEndFrame = 5;
   }
-  const attackFrames = scene.anims.generateFrameNumbers(`hero${index}`, { start: startFrame, end: endFrame });
+
   scene.anims.create({
     key: `heroAttack${index}`,
-    frames: attackFrames,
-    frameRate: 10 * scene.selectedSpeed.value,
-    repeat: -1
+    frames: scene.anims.generateFrameNumbers(`hero${index}`, { start: attackStartFrame, end: attackEndFrame }),
+    frameRate,
+    repeat: 0
   });
 }
 
 export function playHeroAttackAnimation(hero, sprite) {
   const heroIndex = hero.index;
-  if (sprite?.anims?.currentAnim?.key !== `heroAttack${heroIndex}`) {
-    sprite?.play(`heroAttack${heroIndex}`);
+  if (sprite && sprite.anims) {
+    // If an attack animation is already playing, don't interrupt it
+    if (sprite.anims.currentAnim && sprite.anims.currentAnim.key === `heroAttack${heroIndex}`) {
+      return;
+    }
+
+    // Stop any current animation and play the attack animation
+    sprite.stop();
+    sprite.play(`heroAttack${heroIndex}`);
+
+    // After the attack animation completes, return to idle
+    sprite.once('animationcomplete', () => {
+      sprite.play(`heroIdle${heroIndex}`, true);
+    });
   }
 }

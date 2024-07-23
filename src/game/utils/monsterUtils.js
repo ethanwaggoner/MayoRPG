@@ -68,10 +68,11 @@ export function handleMonsterMovement(scene, monsterSprite, heroes, attackDistan
       if (monsterSprite.anims.currentAnim?.key !== `monsterAttack${monsterSprite.data.get('element')}${monsterSprite.data.get('index')}`) {
         monsterSprite.play(`monsterAttack${monsterSprite.data.get('element')}${monsterSprite.data.get('index')}`);
       }
+      playHeroAttackAnimation(closestHero.hero, closestHero.sprite);
       if (monster.canAttack()) {
         const damage = monster.calculateDamage();
         closestHero.hero.takeDamage(damage);
-        displayDamage(scene, closestHero.sprite, damage, '#ff0000');
+        displayDamage(scene, closestHero.sprite, damage, '#0000ff');
         if (closestHero.hero.health <= 0) {
           if (scene.continueAfterFighting.value) {
             scene.emit('restartGame');

@@ -41,6 +41,9 @@ export class GameScene extends Phaser.Scene {
 
   create() {
     this.add.image(600, 300, 'background');
+    this.heroes.forEach((hero, index) => {
+    hero.index = index;  // Ensure each hero has an index property
+  });
     createHeroes(this, this.heroes);
     this.monsters = this.physics.add.group();
 
