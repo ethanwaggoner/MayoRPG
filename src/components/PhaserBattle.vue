@@ -1,27 +1,58 @@
 <script setup>
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted, computed, onUnmounted, watch } from 'vue';
 import { useHeroStore } from "@/store/HeroStore.js";
 import { createGame } from '../game/PhaserGame';
 import useGameControls from '../composables/useGameControls';
 
-const emit = defineEmits(['gameOver', 'restartGame']);
+const emit = defineEmits(['gameOver', 'switchToPreviousView']);
 
 const heroStore = useHeroStore();
 const heroes1 = computed(() => heroStore.HeroGroup1);
 
 const gameContainer = ref(null);
-const { selectedSpeed, continueAfterFighting, changeSpeed } = useGameControls();
+const { selectedSpeed, continueAfterFighting, changeSpeed, changeContinueAfterFighting } = useGameControls();
 
 let game;
 
 onMounted(() => {
   heroStore.loadHeroData();
-  game = createGame(gameContainer.value, heroes1.value, emit, selectedSpeed, continueAfterFighting);
+  startGame();
 });
+
+function startGame() {
+  game = createGame(gameContainer.value, heroes1.value, handleGameOver, selectedSpeed.value, continueAfterFighting.value);
+}
+
+function handleGameOver() {
+  emit('gameOver');
+  if (!continueAfterFighting.value) {
+    // Destroy the current game instance
+    if (game) {
+      game.destroy(true);
+      game = null;
+    }
+    // Emit an event to tell the parent component to switch back to the previous view
+    emit('switchToPreviousView');
+  }
+}
 
 function handleSpeedChange(newSpeed) {
   changeSpeed(game, newSpeed);
 }
+
+function handleContinueAfterFightingChange(value) {
+  changeContinueAfterFighting(game, value);
+}
+
+watch(continueAfterFighting, (newValue) => {
+  handleContinueAfterFightingChange(newValue);
+});
+
+onUnmounted(() => {
+  if (game) {
+    game.destroy(true);
+  }
+});
 </script>
 
 <template>
@@ -35,7 +66,7 @@ function handleSpeedChange(newSpeed) {
       <option value="4">4x</option>
     </select>
     <label>
-      <input type="checkbox" v-model="continueAfterFighting" /> Continue after fighting
+      <input type="checkbox" v-model="continueAfterFighting" @change="handleContinueAfterFightingChange($event.target.checked)" /> Restart Round After Death
     </label>
   </div>
 </template>
@@ -48,8 +79,9 @@ function handleSpeedChange(newSpeed) {
 
 .controls {
   position: absolute;
+  margin: auto;
   bottom: 10px;
-  left: 10px;
+  left: 3rem;
   background: rgba(0, 0, 0, 0.5);
   color: white;
   padding: 10px;

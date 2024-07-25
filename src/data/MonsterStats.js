@@ -1,3 +1,4 @@
+// MonsterStats.js
 import Monster1SpriteA from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Monsters/Sprites/Enemy_001_A.png';
 import Monster1SpriteB from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Monsters/Sprites/Enemy_001_B.png';
 import Monster1SpriteC from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Monsters/Sprites/Enemy_001_C.png';
@@ -15,7 +16,6 @@ import Monster4SpriteB from '@/assets/Rogue Adventure Assets/Rogue Adventure Wor
 import Monster4SpriteC from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Monsters/Sprites/Enemy_004_C.png';
 import Monster4SpriteD from '@/assets/Rogue Adventure Assets/Rogue Adventure World 2.6.0/Monsters/Sprites/Enemy_004_D.png';
 
-
 export const MonsterStats = [
   {
     name: "Goblin",
@@ -32,7 +32,8 @@ export const MonsterStats = [
       "Water Defense": 2,
       "Light Defense": 4,
       "Dark Defense": 3,
-      "Health": 80
+      "Health": 80,
+      "AttackSpeed": 1
     },
   },
   {
@@ -50,7 +51,8 @@ export const MonsterStats = [
       "Water Defense": 6,
       "Light Defense": 10,
       "Dark Defense": 12,
-      "Health": 150
+      "Health": 150,
+      "AttackSpeed": 1
     },
   },
   {
@@ -68,7 +70,8 @@ export const MonsterStats = [
       "Water Defense": 5,
       "Light Defense": 7,
       "Dark Defense": 9,
-      "Health": 120
+      "Health": 120,
+      "AttackSpeed": 1
     },
   },
   {
@@ -86,8 +89,8 @@ export const MonsterStats = [
       "Water Defense": 14,
       "Light Defense": 16,
       "Dark Defense": 18,
-      "Health": 300
+      "Health": 300,
+      "AttackSpeed": 1
     },
   },
-
 ];

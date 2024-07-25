@@ -1,25 +1,33 @@
 export class Monster {
   constructor(monsterData) {
-    if (!monsterData || !monsterData.stats) {
-      throw new Error("Invalid monster data provided");
-    }
-
     this.name = monsterData.name;
-    this.spriteSheet = monsterData.spriteSheet;
+    this.stats = monsterData.stats;
+    this.health = this.stats["Health"];
+    this.attackSpeed = this.stats["AttackSpeed"];
+    this.attackBar = 0;
 
-    this.health = monsterData.stats["Health"];
-    this.fireAttack = monsterData.stats["Fire Attack"];
-    this.waterAttack = monsterData.stats["Water Attack"];
-    this.lightAttack = monsterData.stats["Light Attack"];
-    this.darkAttack = monsterData.stats["Dark Attack"];
-    this.fireDefense = monsterData.stats["Fire Defense"];
-    this.waterDefense = monsterData.stats["Water Defense"];
-    this.lightDefense = monsterData.stats["Light Defense"];
-    this.darkDefense = monsterData.stats["Dark Defense"];
-    this.sprite = null; // Initialize sprite as null
+    this.x = 0;
+    this.y = 0;
+    this.sprite = null;
+  }
 
-    this.attackCooldown = 1000; // 1 second cooldown between attacks
-    this.lastAttackTime = 0;
+  update(delta) {
+    this.attackBar += this.attackSpeed * delta / 1000;
+    if (this.attackBar > 100) this.attackBar = 100;
+  }
+
+  attack(target) {
+    if (this.attackBar >= 100) {
+      const damage = Math.max(0, this.calculateDamage() - target.defense);
+      target.takeDamage(damage);
+      this.attackBar = 0;
+      return damage;
+    }
+    return 0;
+  }
+
+  calculateDamage() {
+    return this.stats["Fire Attack"]; // Adjust based on your logic
   }
 
   takeDamage(damage) {
@@ -30,43 +38,28 @@ export class Monster {
   }
 
   die() {
-    // Destroy the sprite associated with this monster
     if (this.sprite) {
       this.sprite.destroy();
     }
   }
 
-  calculateDamage() {
-    // Simple damage calculation
-    return this.fireAttack;
-  }
-
-  canAttack() {
-    const now = Date.now();
-    if (now - this.lastAttackTime >= this.attackCooldown) {
-      this.lastAttackTime = now;
-      return true;
+  setPosition(x, y) {
+    this.x = x;
+    this.y = y;
+    if (this.sprite) {
+      this.sprite.setPosition(x, y);
     }
-    return false;
   }
-
-
 
   serialize() {
     return JSON.stringify({
       name: this.name,
-      spriteSheet: this.spriteSheet,
-      stats: {
-        "Health": this.health,
-        "Fire Attack": this.fireAttack,
-        "Water Attack": this.waterAttack,
-        "Light Attack": this.lightAttack,
-        "Dark Attack": this.darkAttack,
-        "Fire Defense": this.fireDefense,
-        "Water Defense": this.waterDefense,
-        "Light Defense": this.lightDefense,
-        "Dark Defense": this.darkDefense
-      }
+      stats: this.stats,
+      health: this.health,
+      attackSpeed: this.attackSpeed,
+      attackBar: this.attackBar,
+      x: this.x,
+      y: this.y
     });
   }
 
@@ -83,18 +76,7 @@ export class Monster {
 
     return new Monster({
       name: obj.name,
-      spriteSheet: obj.spriteSheet,
-      stats: {
-        "Health": obj.stats["Health"],
-        "Fire Attack": obj.stats["Fire Attack"],
-        "Water Attack": obj.stats["Water Attack"],
-        "Light Attack": obj.stats["Light Attack"],
-        "Dark Attack": obj.stats["Dark Attack"],
-        "Fire Defense": obj.stats["Fire Defense"],
-        "Water Defense": obj.stats["Water Defense"],
-        "Light Defense": obj.stats["Light Defense"],
-        "Dark Defense": obj.stats["Dark Defense"]
-      }
+      stats: obj.stats
     });
   }
 }

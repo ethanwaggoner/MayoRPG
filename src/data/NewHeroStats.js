@@ -43,7 +43,8 @@ export const NewHeroStats = [
       "Water Defense": 9,
       "Light Defense": 5,
       "Dark Defense": 14,
-      "Health": 120
+      "Health": 120,
+      "Attack Speed": 5
     },
   },
   {
@@ -60,7 +61,8 @@ export const NewHeroStats = [
       "Water Defense": 6,
       "Light Defense": 12,
       "Dark Defense": 8,
-      "Health": 100
+      "Health": 100,
+      "Attack Speed": 6
     },
   },
   {
@@ -77,7 +79,8 @@ export const NewHeroStats = [
       "Water Defense": 14,
       "Light Defense": 8,
       "Dark Defense": 12,
-      "Health": 140
+      "Health": 140,
+      "Attack Speed": 7
     },
   },
   {
@@ -94,7 +97,8 @@ export const NewHeroStats = [
       "Water Defense": 18,
       "Light Defense": 10,
       "Dark Defense": 15,
-      "Health": 150
+      "Health": 150,
+      "Attack Speed": 8
     },
   },
   {
@@ -111,7 +115,8 @@ export const NewHeroStats = [
       "Water Defense": 7,
       "Light Defense": 12,
       "Dark Defense": 10,
-      "Health": 105
+      "Health": 105,
+      "Attack Speed": 9
     },
   },
   {
@@ -128,7 +133,8 @@ export const NewHeroStats = [
       "Water Defense": 12,
       "Light Defense": 10,
       "Dark Defense": 15,
-      "Health": 130
+      "Health": 130,
+      "Attack Speed": 10
     },
   },
   {
@@ -145,7 +151,8 @@ export const NewHeroStats = [
       "Water Defense": 6,
       "Light Defense": 9,
       "Dark Defense": 12,
-      "Health": 110
+      "Health": 110,
+      "Attack Speed": 11
     },
   },
   {
@@ -162,7 +169,8 @@ export const NewHeroStats = [
       "Water Defense": 6,
       "Light Defense": 9,
       "Dark Defense": 12,
-      "Health": 115
+      "Health": 115,
+      "Attack Speed": 12
     },
   },
   {
@@ -179,7 +187,8 @@ export const NewHeroStats = [
       "Water Defense": 15,
       "Light Defense": 12,
       "Dark Defense": 18,
-      "Health": 145
+      "Health": 145,
+      "Attack Speed": 5
     },
   },
   {
@@ -196,7 +205,8 @@ export const NewHeroStats = [
       "Water Defense": 9,
       "Light Defense": 10,
       "Dark Defense": 15,
-      "Health": 135
+      "Health": 135,
+      "Attack Speed": 6
     },
   },
   {
@@ -213,7 +223,8 @@ export const NewHeroStats = [
       "Water Defense": 10,
       "Light Defense": 12,
       "Dark Defense": 15,
-      "Health": 125
+      "Health": 125,
+      "AttackS peed": 7
     }
 }
 ];

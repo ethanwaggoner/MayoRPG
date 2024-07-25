@@ -6,15 +6,22 @@ export default function useGameControls() {
 
   function changeSpeed(game, newSpeed) {
     selectedSpeed.value = newSpeed;
-    if (game && game.scene.scenes[0]) {
-      const scene = game.scene.scenes[0];
-      scene.setSpeed(newSpeed);
+    if (game) {
+      game.setGameSpeed(newSpeed);
+    }
+  }
+
+  function changeContinueAfterFighting(game, value) {
+    continueAfterFighting.value = value;
+    if (game) {
+      game.setContinueAfterFighting(value);
     }
   }
 
   return {
     selectedSpeed,
     continueAfterFighting,
-    changeSpeed
+    changeSpeed,
+    changeContinueAfterFighting
   };
 }

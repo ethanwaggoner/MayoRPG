@@ -1,22 +1,44 @@
 import Phaser from 'phaser';
-import { GameScene } from './scenes/GameScene';
-import { GAME_WIDTH, GAME_HEIGHT } from './gameConstants';
+import { GameScene } from '/src/game/scenes/GameScene';
 
-export function createGame(container, heroes, emit, selectedSpeed, continueAfterFighting) {
+export function createGame(container, heroes, onGameOver, selectedSpeed, continueAfterFighting) {
   const config = {
     type: Phaser.AUTO,
-    width: GAME_WIDTH,
-    height: GAME_HEIGHT,
     parent: container,
+    width: 1200,
+    height: 600,
+    scene: GameScene,
     physics: {
       default: 'arcade',
-      arcade: { debug: false }
-    },
-    scene: [GameScene]
+      arcade: {
+        gravity: { y: 0 },
+        debug: false
+      }
+    }
   };
 
   const game = new Phaser.Game(config);
-  game.scene.start('GameScene', { heroes, emit, selectedSpeed, continueAfterFighting });
+
+  game.scene.start('GameScene', {
+    heroes: heroes,
+    onGameOver: onGameOver,
+    selectedSpeed: selectedSpeed,
+    continueAfterFighting: continueAfterFighting
+  });
+
+  game.setGameSpeed = (speed) => {
+    const scene = game.scene.getScene('GameScene');
+    if (scene) {
+      scene.setGameSpeed(speed);
+    }
+  };
+
+  game.setContinueAfterFighting = (value) => {
+    const scene = game.scene.getScene('GameScene');
+    if (scene) {
+      scene.setContinueAfterFighting(value);
+    }
+  };
 
   return game;
 }

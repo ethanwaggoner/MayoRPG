@@ -31,26 +31,6 @@ export function findClosestHero(monsterSprite, heroes) {
   return closestHero;
 }
 
-export function handleCollision(monsterSprite, heroSprite) {
-  const monster = monsterSprite.getData('instance');
-  const hero = heroSprite.getData('instance');
-  monsterSprite.setVelocity(0);
-  if (monsterSprite.anims.currentAnim?.key !== `monsterAttack${monsterSprite.data.get('element')}${monsterSprite.data.get('index')}`) {
-    monsterSprite.play(`monsterAttack${monsterSprite.data.get('element')}${monsterSprite.data.get('index')}`);
-  }
-  if (monster.canAttack()) {
-    const damage = monster.calculateDamage();
-    hero.takeDamage(damage);
-    displayDamage(this, hero.sprite, damage, '#ff0000');
-    if (hero.health <= 0) {
-      if (this.continueAfterFighting.value) {
-        this.emit('restartGame');
-      } else {
-        this.emit('gameOver');
-      }
-    }
-  }
-}
 
 export function monsterKilled(scene) {
   scene.monstersKilled++;
